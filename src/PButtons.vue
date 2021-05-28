@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: 'PForm',
+  name: 'PButtons',
   props: ['b1', 'b2', 'b3'],
 }
 </script>
