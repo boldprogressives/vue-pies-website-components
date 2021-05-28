@@ -1,0 +1,71 @@
+select {
+  border: 1px solid $color__border-input;
+}
+
+textarea {
+  width: 100%;
+}
+
+.gform_wrapper,
+.gform_wrapper.gravity-theme {
+
+  &.gf-mini-form_wrapper {
+    max-width: 450px;
+  }
+  
+  form {
+    text-align: left;
+
+    .gform_fields {
+      grid-column-gap: 16px;
+      grid-row-gap: 16px;
+    }
+    
+    input[type="text"],
+    input[type="email"],
+    input[type="url"],
+    input[type="password"],
+    input[type="search"],
+    input[type="number"],
+    input[type="tel"],
+    input[type="range"],
+    input[type="date"],
+    input[type="month"],
+    input[type="week"],
+    input[type="time"],
+    input[type="datetime"],
+    input[type="datetime-local"],
+    input[type="color"],
+    textarea {
+      @extend .form-control;
+      border-radius: 0;
+      border-radius: var(--button-radius);
+    }
+
+    .gfield {
+      position: relative;
+      
+      label.gfield_label {
+        @extend .form-label;
+        position: absolute;
+        top: $input-padding-y;
+        left: $input-padding-x;
+      }
+    }
+
+    input[type=submit],
+    .gf-custom-submit-button {
+      @extend .btn;
+      @extend .btn-secondary;
+      @extend .w-100;
+
+      background-color: var(--button-color);
+      border-color: var(--button-color);
+      color: var(--button-text-color);            
+    }
+
+    .gform_footer {
+      display: none;
+    }
+  }  
+}

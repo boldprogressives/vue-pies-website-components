@@ -1,0 +1,213 @@
+.wp-block-latest-posts.wp-block-latest-posts__list {
+  
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  text-align: center;
+  margin: 1em -.5em .5em;
+  padding: 0;
+  max-width: 100%;
+
+  --columns: 4;
+  
+  li {
+    flex: 0 0 calc(100% / var(--columns));
+    min-width: 200px;
+    max-width: calc((100vw / var(--columns)) - 5vw);
+    padding: 0 .5em;
+    margin: .5em 0;
+    display: flex;
+    flex-direction: column;
+    
+    .wp-block-latest-posts__featured-image {
+      margin-bottom: 0;
+      display: block;
+
+      @extend .image-aspect-ratio-container;
+
+      &.wp-block-latest-posts__featured-image--contain {		
+	img {
+	  object-fit: contain;
+	  background-color: var(--featured-image-background-color);
+	}
+      }
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      margin-top: .5em;
+      display: block;
+    }
+
+    .wp-block-latest-posts__post-excerpt {
+      padding-right: 1em;
+    }
+
+    .wp-block-latest-posts__post-meta {
+      margin-top: auto;
+      
+      a {
+	font-size: .75em;
+	font-weight: bold;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	text-transform: uppercase;
+      }
+      
+      img {
+	display: inline;
+	width: 35px;
+	margin-right: 10px;
+      }
+    }
+  }
+
+  &.wp-block-latest-posts--cols-6 {
+    --columns: 6;
+  }
+  &.wp-block-latest-posts--cols-4 {
+    --columns: 4;
+  }
+  &.wp-block-latest-posts--cols-3 {
+    --columns: 3;
+  }
+  &.wp-block-latest-posts--cols-2 {
+    --columns: 2;
+  }
+
+  li {
+    &.wp-block-latest-posts--tile-pies_issue {
+      .wp-block-latest-posts__featured-image {
+        @extend .mt-2;
+        @extend .mb-4;
+      }
+      .wp-block-latest-posts__post-meta a {
+        justify-content: center;
+        @extend button;
+        @extend .btn-tertiary;
+        color: white !important;
+      }
+      @include media-breakpoint-down(lg) {
+        flex: 0 0 100%;
+        max-width: 100%;
+        flex-direction: row;
+
+        img {
+          position: unset;
+          order: 1;
+        }
+        
+        h3 {
+          order: 2;
+        }
+
+        .wp-block-latest-posts__post-excerpt {
+          order: 3;
+        }
+      }
+    }
+    
+    &.wp-block-latest-posts--tile-pies_endorsement {
+      .wp-block-latest-posts__featured-image {
+        @extend .wp-block-latest-posts__featured-image--contain;
+      }
+    }
+
+    &.wp-block-latest-posts--tile-pies_event {
+      min-width: 300px;
+      max-width: 300px;
+      height: 350px;
+      @extend .bg-primary;
+      @extend .text-white;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      background: var(--theme--color__heavy) !important;
+      
+      .wp-block-latest-posts__post-meta {
+        position: absolute;
+        right: 0;
+        left: auto;
+        z-index: -1;
+        top: -2em;
+        padding: .25em 1em;
+        background: #777;
+        background: transparent;
+        border: 3px solid var(--theme--color__accent);
+        color: var(--theme--color__heavy);
+        border-bottom: none;
+
+        a {
+          text-align: right;
+          display: block;
+        }
+      }
+      
+      h5 {
+        padding-bottom: .5em;
+        
+        a {
+          font-size: 1em;
+          line-height: 1.4;
+        }
+      }
+      
+      .wp-block-latest-posts__post-excerpt {
+        a {
+          margin-top: 0.25em;
+        }
+      }
+    }
+  }
+
+  &.wp-block-latest-posts--justify-center {
+    justify-content: space-around;
+  }
+
+  &.wp-block-latest-posts--ar-3x1 {
+    .wp-block-latest-posts__featured-image {
+      --image-aspect-ratio: calc(100% / 3);
+    }
+  }
+  
+
+  @include media-breakpoint-down(sm) {
+    justify-content: center;
+
+    li {
+      margin: 1em 0;
+      line-height: 1.2;
+
+      .wp-block-latest-posts__post-meta {
+	margin-top: -.25em;
+      }
+    }
+  }
+}
+
+.related-resources {
+  flex: 1 0 100%;
+  
+  .wp-block-latest-posts.wp-block-latest-posts__list {
+    margin-left: -.5em;
+    margin-right: -.5em;    
+  }
+
+  @include media-breakpoint-down(lg) {
+    margin: 0 .5em;
+  }
+  
+  @include media-breakpoint-down(sm) {
+    h4 {
+      text-align: center !important;
+    }
+	.wp-block-latest-posts.wp-block-latest-posts__list {
+	    margin-top: 0;
+	}
+    }
+    
+}
