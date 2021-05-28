@@ -1,3 +1,4 @@
+import Background from './src/Background.vue';
 import PButtons from './src/PButtons.vue';
 import PForm from './src/PForm.vue';
 import Tile from './src/Tile.vue';
@@ -11,5 +12,6 @@ export default {
     Vue.component('media-unit', MediaUnit);
     Vue.component('p-form', PForm);
     Vue.component('p-buttons', PButtons);
+    Vue.component('background', Background);
   }
 }
