@@ -67,15 +67,17 @@ export default {
         this.submitted = true;
         return;
       }
+      
       const response = await this.$fire.firestore.collection("website-form-submissions").add({
         fields: this.fields,
         meta: {
           userAgent: navigator.userAgent,
           referrer: document.referrer,
-          location: window.location,
+          location: window.location.href,
         },
         form: this.uuid,
         site: this.$pies.site,
+        timestamp: this.$fireModule.firestore.FieldValue.serverTimestamp()
       });
       this.submitted = true;
     },
