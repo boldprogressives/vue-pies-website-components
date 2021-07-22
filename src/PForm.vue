@@ -1,9 +1,7 @@
 <template>
 <div class="form-wrapper">
-  <vue-flip active-hover>
-    <template v-slot:front>
       
-      <form method="POST" @submit.prevent="submitForm">
+      <form method="POST" @submit.prevent="submitForm" v-if="!submitted">
         
         <div class="row mb-3">
           <div class="col">
@@ -44,24 +42,19 @@
         </div>
 
       </form>
-    </template>
-    <template v-slot:back>
-      <h3>
-        Thank you for your submission! We'll be in touch.
-      </h3>
-    </template>
-  </vue-flip>
+
+      <div v-if="submitted">
+        <h3>
+          Thank you for your submission! We'll be in touch.
+        </h3>
+      </div>
+
 </div>
 </template>
 
 <script>
-import VueFlip from 'vue-flip';
-
 export default {
   name: 'PForm',
-  components: {
-    'vue-flip': VueFlip,
-  },
   props: [
     'submit'
   ],
@@ -72,6 +65,7 @@ export default {
   },
   data () {
     return {
+      submitted: false,
       fields: {
         email: '',
         phone: '',

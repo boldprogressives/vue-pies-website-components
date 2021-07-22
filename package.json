@@ -9,6 +9,5 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "vue-flip": "^2.2.0"
   }
 }
