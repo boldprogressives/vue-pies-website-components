@@ -6,21 +6,11 @@ textarea {
   width: 100%;
 }
 
-.gform_wrapper,
-.gform_wrapper.gravity-theme {
+.form-wrapper {
 
-  &.gf-mini-form_wrapper {
-    max-width: 450px;
-  }
-  
   form {
     text-align: left;
 
-    .gform_fields {
-      grid-column-gap: 16px;
-      grid-row-gap: 16px;
-    }
-    
     input[type="text"],
     input[type="email"],
     input[type="url"],
@@ -38,34 +28,34 @@ textarea {
     input[type="color"],
     textarea {
       @extend .form-control;
-      border-radius: 0;
-      border-radius: var(--button-radius);
+      border-radius: var(--button-radius, 0);
     }
 
-    .gfield {
-      position: relative;
-      
-      label.gfield_label {
-        @extend .form-label;
-        position: absolute;
-        top: $input-padding-y;
-        left: $input-padding-x;
-      }
-    }
-
-    input[type=submit],
-    .gf-custom-submit-button {
+    input[type=submit] {
       @extend .btn;
       @extend .btn-secondary;
       @extend .w-100;
 
+      height: calc(3.5rem + 2px);
+      padding: 1rem 1.5rem;
+      
       background-color: var(--button-color);
       border-color: var(--button-color);
-      color: var(--button-text-color);            
+      color: var(--button-text-color);
+
+      transition: all .3s ease;
+      
+      &:hover {
+        font-size: 1.05rem;
+      }
     }
 
-    .gform_footer {
-      display: none;
-    }
   }  
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0;
 }
