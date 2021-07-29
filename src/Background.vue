@@ -1,15 +1,19 @@
+<template>
+<span class="media-unit--overlay" :style="`background: ${background}`"></span>
+</template>
+
 <script>
 export default {
   name: 'Background',
-  render () {
-    return '';
-  },
   computed: {
     gradientString () {
       return this.linearGradient ? `linear-gradient(${this.linearGradient})` : null;
     },
     imageString () {
       return this.image ? `url(${this.image})` : null;
+    },
+    background () {
+      return this.backgroundImage;
     },
     backgroundImage () {
       if (this.imageString) {
@@ -59,8 +63,7 @@ export default {
   },
   methods: {
     emitString () {
-      this.$parent.background[this.uuid] = this.cssString;
-      this.$parent.remergeStyles();
+      return;
     },
     tellParentAboutMe () {
       if (!this.$store) {
