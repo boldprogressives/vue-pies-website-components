@@ -1,5 +1,5 @@
 <template>
-<span class="media-unit--overlay" :style="`background: ${background}`"></span>
+<span class="media-unit--overlay" :style="`background: ${cssString}`"></span>
 </template>
 
 <script>
@@ -11,9 +11,6 @@ export default {
     },
     imageString () {
       return this.image ? `url(${this.image})` : null;
-    },
-    background () {
-      return this.backgroundImage;
     },
     backgroundImage () {
       if (this.imageString) {
