@@ -1,9 +1,12 @@
 <template>
-<li class="wp-block-latest-posts--tile wp-block-latest-posts--tile-pies_issue"
+<li class="wp-block-latest-posts--tile" :class="className"
     @click.stop.prevent="tellParentAboutMe">
 
   <div class="wp-block-latest-posts__featured-image">
-    <a :href="href">
+    <component is="nuxt-link" v-if="$nuxt" :to="href">
+      <img :src="image" />
+    </component>
+    <a v-else :href="href">
       <img :src="image" />
     </a>
   </div>
@@ -28,6 +31,7 @@ export default {
     'href',
     'image',
     'uuid',
+    'className',
   ],
   computed: {
     me () {
