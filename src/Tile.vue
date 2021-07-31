@@ -3,11 +3,13 @@
     @click.stop.prevent="tellParentAboutMe">
 
   <div class="wp-block-latest-posts__featured-image">
-    <component is="nuxt-link" v-if="$nuxt" :to="href">
-      <img :src="image" />
+    <component is="nuxt-link" v-if="useNuxtLink(href)" :to="href">
+      <nuxt-img v-if="useNuxtImg" :src="image"></nuxt-img>
+      <img v-else :src="image" />
     </component>
     <a v-else :href="href">
-      <img :src="image" />
+      <nuxt-img v-if="useNuxtImg" :src="image"></nuxt-img>
+      <img v-else :src="image" />
     </a>
   </div>
       
@@ -17,7 +19,12 @@
   </div>
   
   <div class="wp-block-latest-posts__post-meta">
-    <a :href="href"> Read More</a>
+    <component is="nuxt-link" v-if="useNuxtLink(href)" :to="href">
+      Read More
+    </component>
+    <a v-else :href="href">
+      Read More
+    </a>
   </div>
 
 </li>
@@ -45,6 +52,21 @@ export default {
     },
   },    
   methods: {
+    useNuxtImg () {
+      if (!this.$nuxt) {
+        return false;
+      }
+      return true;
+    },
+    useNuxtLink (href) {
+      if (!this.$nuxt) {
+        return false;
+      }
+      if (href.match(/:\/\//)) {
+        return false;
+      }
+      return true;
+    },
     tellParentAboutMe () {
       if (!this.$store) {
         return;

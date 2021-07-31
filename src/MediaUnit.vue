@@ -5,9 +5,16 @@
   <span class="media-unit--overlay"></span>
   <div class="media-side" style="position: relative" :style="mediaStyles">
     <slot name="media-side">
-      <img v-for="img, index in images" :key="img"
-           :src="img"
-           :class="index ? 'hidden' : ''">
+      <template v-if="useNuxtImg">
+        <nuxt-img v-for="img, index in images" :key="img"
+                  :src="img"
+                  :class="index ? 'hidden' : ''">
+        </nuxt-img>
+      </template>
+      <template v-else>
+        <img v-for="img, index in images" :key="img"
+             :src="img"
+             :class="index ? 'hidden' : ''" />
     </slot>
   </div>
   
@@ -42,6 +49,12 @@ export default {
     },
   },
   methods: {
+    useNuxtImg () {
+      if (!this.$nuxt) {
+        return false;
+      }
+      return true;
+    },    
     remergeStyles () {
       const val = Object.values(this.background).join(', ');
       if (!val) {
