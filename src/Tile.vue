@@ -8,7 +8,7 @@
       <img v-else :src="image" />
     </component>
     <a v-else :href="href">
-      <nuxt-img v-if="useNuxtImg" :src="image"></nuxt-img>
+      <component is="nuxt-img" v-if="useNuxtImg" :src="image"></component>
       <img v-else :src="image" />
     </a>
   </div>

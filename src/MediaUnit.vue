@@ -6,10 +6,10 @@
   <div class="media-side" style="position: relative" :style="mediaStyles">
     <slot name="media-side">
       <template v-if="useNuxtImg">
-        <nuxt-img v-for="img, index in images" :key="img"
+        <component is="nuxt-img" v-for="img, index in images" :key="img"
                   :src="img"
                   :class="index ? 'hidden' : ''">
-        </nuxt-img>
+        </component>
       </template>
       <template v-else>
         <img v-for="img, index in images" :key="img"
