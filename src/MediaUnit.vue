@@ -5,17 +5,10 @@
   <span class="media-unit--overlay"></span>
   <div class="media-side" style="position: relative" :style="mediaStyles">
     <slot name="media-side">
-      <template v-if="useNuxtImg">
-        <component is="nuxt-img" v-for="img, index in images" :key="img"
-                  :src="img"
-                  :class="index ? 'hidden' : ''">
-        </component>
-      </template>
-      <template v-else>
-        <img v-for="img, index in images" :key="img"
-             :src="img"
-             :class="index ? 'hidden' : ''" />
-      </template>
+      <component :is="maybeNuxtImg" v-for="img, index in images" :key="img"
+                 :src="img"
+                 :class="index ? 'hidden' : ''">
+      </component>
     </slot>
   </div>
   
@@ -36,6 +29,9 @@ export default {
     'uuid',
   ],
   computed: {
+    maybeNuxtImg () {
+      return this.useNuxtImg() ? 'nuxt-img' : 'img';
+    },
     images () {
       return (this.image || '').split(', ').map(o => o.trim()).filter(o => o);
     },
