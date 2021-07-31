@@ -8,7 +8,6 @@
     </component>
     <a v-else :href="href">
       <component :is="maybeNuxtImg" :src="image"></component>
-      <img v-else :src="image" />
     </a>
   </div>
       
