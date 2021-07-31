@@ -15,6 +15,7 @@
         <img v-for="img, index in images" :key="img"
              :src="img"
              :class="index ? 'hidden' : ''" />
+      </template>
     </slot>
   </div>
   
