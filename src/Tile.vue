@@ -4,11 +4,10 @@
 
   <div class="wp-block-latest-posts__featured-image">
     <component is="nuxt-link" v-if="useNuxtLink(href)" :to="href">
-      <component is="nuxt-img" v-if="useNuxtImg" :src="image"></component>
-      <img v-else :src="image" />
+      <component :is="maybeNuxtImg" :src="image"></component>
     </component>
     <a v-else :href="href">
-      <component is="nuxt-img" v-if="useNuxtImg" :src="image"></component>
+      <component :is="maybeNuxtImg" :src="image"></component>
       <img v-else :src="image" />
     </a>
   </div>
@@ -50,6 +49,9 @@ export default {
         parent: this.$parent.uuid,
       }
     },
+    maybeNuxtImg () {
+      return this.useNuxtImg() ? 'nuxt-img' : 'img';
+    }
   },    
   methods: {
     useNuxtImg () {
