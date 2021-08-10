@@ -4,16 +4,22 @@
   font-weight: bold;
   letter-spacing: .1em;
   min-width: 5rem;
-  border-radius: 0;
-  border-radius: var(--button-radius);
+  border-radius: var(--button-radius, 0);
   @extend .shadow;
   min-width: 100px;
 }
 
 .wp-block-buttons {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  column-gap: .5em;
   justify-content: center;
   
   .wp-block-button {
+
+    margin-bottom: 1em;
+    
     a.wp-block-button__link {
       @extend .btn;
       @extend .btn-secondary;
