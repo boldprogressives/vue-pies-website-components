@@ -27,6 +27,8 @@
   @include media-breakpoint-up(lg) {
     flex-wrap: nowrap;
   }
+
+  overflow: hidden;
   
   > .media-unit--overlay {
     position: absolute;
