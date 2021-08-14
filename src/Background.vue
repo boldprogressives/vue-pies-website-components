@@ -7,7 +7,15 @@ export default {
   name: 'Background',
   computed: {
     gradientString () {
-      return this.linearGradient ? `linear-gradient(${this.linearGradient})` : null;
+      if (this.linearGradient) {
+        return `linear-gradient(${this.linearGradient})`;
+      }
+      if (this.gradient === 'linear') {
+        return `linear-gradient(to ${this.to}, ${this.start} ${this.startAt || '0%'}, ${this.end} ${this.endAt || '100%'})`;
+      }
+      // `<background gradient="linear" to="right" start="#fff" start-at="0%" end="blue" end-at="50%">`
+
+      return null;
     },
     imageString () {
       return this.image ? `url(${this.image})` : null;
@@ -48,7 +56,16 @@ export default {
     this.emitString();
   },
   props: {
+
+    gradient: { type: String },
+    to: { type: String },
+    start: { type: String },
+    startAt: { type: String },
+    end: { type: String },
+    endAt: { type: String },
+    
     linearGradient: { type: String },
+    
     image: { type: String },
     position: { type: String },
     size: { type: String },
