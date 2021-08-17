@@ -1,5 +1,5 @@
 <template>
-<span class="media-unit--overlay" :style="`background: ${cssString}`"></span>
+<span class="media-unit--overlay" :style="`background: ${cssString}`" v-html="content"></span>
 </template>
 
 <script>
@@ -17,6 +17,16 @@ export default {
 
       return null;
     },
+
+    content () {
+      if (!this.video) return '';
+      if (this.video.match(/youtube/)) {
+        const id = this.video.split('?v=')[1];
+        return `<iframe frameborder="0" height="100%" width="100%" src="https://youtube.com/embed/${id}?autoplay=1&controls=0&showinfo=0&autohide=1&loop=1&mute=1">`;
+      }
+
+    },
+    
     imageString () {
       return this.image ? `url(${this.image})` : null;
     },
@@ -65,8 +75,11 @@ export default {
     endAt: { type: String },
     
     linearGradient: { type: String },
+
+    video: { type: String },
     
     image: { type: String },
+    
     position: { type: String },
     size: { type: String },
     repeat: { type: String },

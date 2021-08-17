@@ -5,7 +5,12 @@
   <span class="media-unit--overlay"></span>
   <div class="media-side" style="position: relative" :style="mediaStyles">
     <slot name="media-side">
-      <component :is="maybeNuxtImg" v-for="img, index in images" :key="img"
+      <div class="media-unit--background-video"
+           v-if="video" v-html="videoEmbed">
+      </div>
+
+      <component v-if="image"
+                 :is="maybeNuxtImg" v-for="img, index in images" :key="img"
                  :src="img"
                  :class="index ? 'hidden' : ''">
       </component>
@@ -26,12 +31,24 @@ export default {
     'contentStyles',
     'mediaStyles',
     'image',
+    'video',
     'uuid',
   ],
   computed: {
     maybeNuxtImg () {
       return this.useNuxtImg() ? 'nuxt-img' : 'img';
     },
+
+    videoEmbed () {
+      if (!this.video) {
+        return;
+      }
+      if (this.video.match(/youtube/)) {
+        const id = this.video.split('?v=')[1];
+        return `<iframe frameborder="0" height="100%" width="100%" src="https://youtube.com/embed/${id}?autoplay=1&controls=0&showinfo=0&autohide=1&loop=1&mute=1">`;
+      }
+    },
+    
     images () {
       return (this.image || '').split(', ').map(o => o.trim()).filter(o => o);
     },
@@ -79,3 +96,13 @@ export default {
   },
 }
 </script>
+
+<style>
+.media-unit--background-video {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+</style>
