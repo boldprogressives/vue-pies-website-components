@@ -1,28 +1,27 @@
 .media-unit {
-  --media-unit__background: transparent;
+  //--media-unit__background: transparent;
   //--media-unit--overlay__background: linear-gradient(to right, rgba(16,45,84,0) 50%, purple 70%);
   //--media-unit--overlay__background: linear-gradient(to right, rgba(0,0,0,0) 50%, #3d2f83 70%), url('https://www.janeese4dc.com/wp-content/uploads/2019/10/janeese-w4-portrait.jpg') no-repeat top center/cover fixed;
   //--media-unit--overlay__background: url('https://kirkpatrickforcongress.com/wp-content/uploads/2019/02/headbgb-2.jpg') no-repeat center center/cover;
+  //--media-unit__clip-path: none;
 
-  --media-unit__clip-path: none;
-
-  --media-unit--media__width: 50%;
-  --media-unit--media__clip-path: polygon(0 0, 100% 0%, 75% 100%, 0% 100%); // slant
-  --media-unit--media__clip-path: polygon(0% 0%, 88% 0, 100% 50%, 88% 100%, 0% 100%); // arrow
+  //--media-unit--media__width: 50%;
+  //--media-unit--media__clip-path: polygon(0 0, 100% 0%, 75% 100%, 0% 100%); // slant
+  //--media-unit--media__clip-path: polygon(0% 0%, 88% 0, 100% 50%, 88% 100%, 0% 100%); // arrow
   //--media-unit--media__clip-path: circle(95% at 7% 50%); //pill
   //--media-unit--media__clip-path: none;
-  --media-unit--content__padding: .25rem;
-  --media-unit--content__background: transparent;
+  //--media-unit--content__padding: .25rem;
+  //--media-unit--content__background: transparent;
 
-  --media-unit__min-height: none;
+  //--media-unit__min-height: none;
   
   position: relative;
   display: flex;
-  background: var(--media-unit__background);
-  min-height: var(--media-unit__min-height);
+  background: var(--media-unit__background, transparent);
+  min-height: var(--media-unit__min-height, none);
   flex-wrap: wrap;
 
-  clip-path: var(--media-unit__clip-path);
+  clip-path: var(--media-unit__clip-path, none);
 
   @include media-breakpoint-up(lg) {
     flex-wrap: nowrap;
@@ -37,7 +36,7 @@
     bottom: 0;
     left: 0;
     z-index: 2;
-    background: var(--media-unit--overlay__background);
+    background: var(--media-unit--overlay__background, transparent);
   }
   
   > div {
@@ -56,8 +55,8 @@
     }
     
     @include media-breakpoint-up(lg) {
-      flex-basis: var(--media-unit--media__width);
-      clip-path: var(--media-unit--media__clip-path);
+      flex-basis: var(--media-unit--media__width, 50%);
+      clip-path: var(--media-unit--media__clip-path, none);
     }
       
     img[src=""] {
@@ -70,7 +69,7 @@
     flex-basis: 100%;
     
     @include media-breakpoint-up(lg) {
-      flex-basis: calc(100% - var(--media-unit--media__width));
+      flex-basis: calc(100% - var(--media-unit--media__width, 50%));
     }
     
     display: flex;
@@ -80,7 +79,7 @@
     text-align: center;
     padding: .25rem;
     z-index: 3;
-    padding: var(--media-unit--content__padding);
-    background: var(--media-unit--content__background);
+    padding: var(--media-unit--content__padding, .25rem);
+    background: var(--media-unit--content__background, transparent);
   }
 }
