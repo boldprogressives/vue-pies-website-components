@@ -17,13 +17,8 @@
   
   position: relative;
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   --image-aspect-ratio: calc(var(--image-height) / var(--image-width) * 100%);
-  
-  @include media-breakpoint-up(lg) {
-    flex-wrap: nowrap;
-  }
-
   overflow: hidden;
   
   > .media-unit--overlay {
@@ -65,5 +60,19 @@
     text-align: center;
     padding: .25rem;
     z-index: 3;
+  }
+
+  @include media-breakpoint-down(lg) {
+    flex-wrap: wrap;
+        
+    > div {
+      flex: 0 0 100% !important;
+      clip-path: none !important;
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+    }
+    > div.media-side {
+      max-height: 40vh !important;
+    }
   }
 }
