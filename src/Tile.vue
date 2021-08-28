@@ -11,7 +11,7 @@
     </a>
   </div>
       
-  <h3 style="margin-bottom: 1.75rem !important; font-size: 34px"><a :href="href">{{title}}</a></h3>
+  <h3 :style="titleStyles || ''"><a :href="href">{{title}}</a></h3>
   <div class="wp-block-latest-posts__post-excerpt" ref="content">
     <slot></slot>
   </div>
@@ -37,6 +37,7 @@ export default {
     'image',
     'uuid',
     'className',
+    'titleStyles',
   ],
   computed: {
     me () {
