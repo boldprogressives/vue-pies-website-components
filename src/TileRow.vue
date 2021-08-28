@@ -5,7 +5,7 @@
 
   <ul class="wp-block-latest-posts wp-block-latest-posts__list wp-block-latest-posts"
       :class="`wp-block-latest-posts--justify-${justify} wp-block-latest-posts--ar-${aspectRatio}`"
-      :style="columns && `--columns: ${columns}`"
+      :style="containerStyles"
       ref="content">
     <slot></slot>
   </ul>  
@@ -23,6 +23,7 @@ export default {
     'order',
     'justify',
     'columns',
+    'containerStyles',
     'aspectRatio',
   ],
   computed: {
