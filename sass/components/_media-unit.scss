@@ -18,7 +18,6 @@
   position: relative;
   display: flex;
   flex-wrap: nowrap;
-  --image-aspect-ratio: calc(var(--image-height) / var(--image-width) * 100%);
   overflow: hidden;
   
   > .media-unit--overlay {
@@ -38,6 +37,7 @@
   > div.media-side {
     flex-basis: min(var(--image-width) * 1px, var(--media-unit--media__width));
     @extend .image-aspect-ratio-container;
+    --image-aspect-ratio: calc(var(--image-height) / var(--image-width) * 100%);
 
     @include media-breakpoint-down(lg) {
       img {
