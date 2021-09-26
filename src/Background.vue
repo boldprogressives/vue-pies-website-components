@@ -6,6 +6,12 @@
 export default {
   name: 'Background',
   computed: {
+    styleString () {
+      return {
+        background: this.cssString,
+        opacity: this.opacity || null,
+      };
+    },
     gradientString () {
       if (this.linearGradient) {
         return `linear-gradient(${this.linearGradient})`;
@@ -75,6 +81,8 @@ export default {
   },
   props: {
 
+    opacity: { type: Decimal },
+    
     gradient: { type: String },
     to: { type: String },
     start: { type: String },
