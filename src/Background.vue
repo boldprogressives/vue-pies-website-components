@@ -30,12 +30,20 @@ export default {
     imageString () {
       return this.image ? `url(${this.image})` : null;
     },
+
+    colorString () {
+      return this.color || null;
+    },
+    
     backgroundImage () {
       if (this.imageString) {
         return this.imageString;
       }
       if (this.gradientString) {
         return this.gradientString;
+      }
+      if (this.colorString) {
+        return this.colorString;
       }
       return null;
     },
