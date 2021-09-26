@@ -81,7 +81,7 @@ export default {
   },
   props: {
 
-    opacity: { type: Decimal },
+    opacity: { type: Number },
     
     gradient: { type: String },
     to: { type: String },
