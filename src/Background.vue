@@ -1,5 +1,5 @@
 <template>
-<span class="media-unit--overlay" :style="`background: ${cssString}`" v-html="content"></span>
+<span class="media-unit--overlay" :style="styleString" v-html="content"></span>
 </template>
 
 <script>
