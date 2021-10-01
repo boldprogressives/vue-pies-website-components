@@ -82,8 +82,7 @@ export default {
   props: {
 
     opacity: {
-      type: Number,
-      coerce: (val) => val * 1,
+      type: String,
     },
     
     gradient: { type: String },
