@@ -10,7 +10,8 @@
       </div>
 
       <component v-if="image"
-                 :is="maybeNuxtImg" v-for="img, index in images" :key="img"
+                 :is="maybeNuxtImg" v-for="img, index in images"
+                 :key="index"
                  :src="img"
                  :class="index ? 'hidden' : ''">
       </component>
@@ -104,5 +105,11 @@ export default {
   right: 0;
   bottom: 0;
   left: 0;
+}
+.media-side img {
+  transition: opacity .3s ease;
+}
+.media-side .hidden {
+  opacity: 0;
 }
 </style>
