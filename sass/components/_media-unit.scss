@@ -64,6 +64,8 @@
 
   @include media-breakpoint-down(lg) {
     flex-wrap: wrap;
+    min-height: 0 !important;
+    max-height: unset !important;
         
     > div {
       flex: 0 0 100% !important;
@@ -73,6 +75,13 @@
     }
     > div.media-side {
       max-height: 40vh !important;
+      max-width: 100% !important;
+      min-width: 100% !important;
+      width: 100% !important;
+
+      &:after {
+        display: none !important;
+      }
     }
   }
 }
