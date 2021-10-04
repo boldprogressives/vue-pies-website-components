@@ -1,6 +1,5 @@
 <template>
-<li class="wp-block-latest-posts--tile" :class="className"
-    @click.stop.prevent="tellParentAboutMe">
+<li class="wp-block-latest-posts--tile" :class="className">
 
   <div class="wp-block-latest-posts__featured-image">
     <component is="nuxt-link" v-if="useNuxtLink(href)" :to="href">
@@ -69,16 +68,6 @@ export default {
       }
       return true;
     },
-    tellParentAboutMe () {
-      if (!this.$store) {
-        return;
-      }
-
-      this.$store.dispatch('setEditingComponent', this.me);
-    }
-  },
-  mounted () {
-    this.$store && this.$store.commit('registerComponentInTree', this.me);
   },
 }
 </script>

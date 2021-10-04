@@ -1,9 +1,9 @@
 <template>
 <div :id="uuid" :ref="uuid" class="media-unit foo"
-     :style="mergedStyles" @click="tellParentAboutMe">
+     :style="mergedStyles">
   <slot name="backgrounds"></slot>
   <span class="media-unit--overlay"></span>
-  <div class="media-side" style="position: relative" :style="mediaStyles">
+  <div ref="media" class="media-side" style="position: relative" :style="mediaStyles">
     <slot name="media-side">
       <div class="media-unit--background-video"
            v-if="video" v-html="videoEmbed">
@@ -13,7 +13,7 @@
                  :is="maybeNuxtImg" v-for="img, index in images"
                  :key="index"
                  :src="img"
-                 :class="index ? 'hidden' : ''">
+                 :class="index === visibleImageIndex ? '' : 'hidden'">
       </component>
     </slot>
   </div>
@@ -39,7 +39,7 @@ export default {
     maybeNuxtImg () {
       return this.useNuxtImg() ? 'nuxt-img' : 'img';
     },
-
+    
     videoEmbed () {
       if (!this.video) {
         return;
@@ -78,21 +78,31 @@ export default {
       this.mergedStyles = `background: ${val}; ${this.styles}`;
       console.log('merged styles is now ', this.mergedStyles);
     },
-    tellParentAboutMe () {
-      if (!this.$store) {
-        return;
-      }
-
-      this.$store.dispatch('setEditingComponent', this.me);
+  },
+  unmounted () {
+    if (this.interval) {
+      window.clearInterval(this.interval);
+      this.interval = null;
     }
   },
   mounted () {
-    this.$store && this.$store.commit('registerComponentInTree', this.me);
+    if (this.images.length > 1) {
+      const self = this;
+      this.interval = window.setInterval(() => {
+        if (self.visibleImageIndex >= self.images.length - 1) {
+          self.visibleImageIndex = 0;
+        } else {
+          self.visibleImageIndex += 1;
+        }
+      }, 3000);
+    }
   },
   data () {
     return {
       background: {},
       mergedStyles: this.styles,
+      visibleImageIndex: 0,
+      interval: null,
     };
   },
 }

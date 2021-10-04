@@ -1,7 +1,7 @@
 <template>
 <div :id="uuid" :ref="uuid" :class="`tile-row tile-row__show--${show}`"
      :data-order="order"
-     :style="styles" @click.stop="tellParentAboutMe">
+     :style="styles">
 
   <ul class="wp-block-latest-posts wp-block-latest-posts__list wp-block-latest-posts"
       :class="`wp-block-latest-posts--justify-${justify} wp-block-latest-posts--ar-${aspectRatio}`"
@@ -36,18 +36,6 @@ export default {
         parent: this.$parent.uuid,
       }
     },
-  },  
-  methods: {
-    tellParentAboutMe () {
-      if (!this.$store) {
-        return;
-      }
-
-      this.$store.dispatch('setEditingComponent', this.me);
-    }
-  },
-  mounted () {
-    this.$store && this.$store.commit('registerComponentInTree', this.me);
   },
 }
 </script>

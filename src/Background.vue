@@ -71,14 +71,6 @@ export default {
       return propsOrder.map(o => this[o]).filter(o => o).join(' ');
     },
   },
-  watch: {
-    cssString () {
-      this.emitString();
-    },
-  },
-  mounted () {
-    this.emitString();
-  },
   props: {
 
     opacity: {
@@ -105,24 +97,6 @@ export default {
     color: { type: String },
     uuid: { type: String },
     for: { type: String, default: 'media-unit' },
-  },
-  methods: {
-    emitString () {
-      return;
-    },
-    tellParentAboutMe () {
-      if (!this.$store) {
-        return;
-      }
-      
-      const me = {
-        name: this.$options.name,
-        props: this.$options.propsData,
-        uuid: this.uuid,
-        content: '',
-      };
-      this.$store.dispatch('setEditingComponent', me);
-    }
   },
 }
 </script>
