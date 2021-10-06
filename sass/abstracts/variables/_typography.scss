@@ -1,8 +1,8 @@
 // stylelint-disable value-keyword-case
 
 $font__main: var(--theme--font__text, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif);
-$font__headings: var(--theme--font__heading, var(--theme--font__text));
-$font__buttons: var(--theme--font__button, var(--theme--font__heading, var(--theme--font__text)));
+$font__headings: var(--theme--font__heading, var(--theme--font__text, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif));
+$font__buttons: var(--theme--font__button, var(--theme--font__heading, var(--theme--font__text, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif)));
 
 // stylelint-enable value-keyword-case
 $font__code: monaco, consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
@@ -19,7 +19,7 @@ $font__letter-spacing-button: var(--theme--font__letter-spacing__button, .1em);
 $font__line-height-pre: $font__line-height-body;
 
 $font__size: var(--theme--font__size, 1.3rem);
-$font__size-heading: var(--theme--font__size__heading, var(--theme--font__size));
-$font__size-button: var(--theme--font__size__button, var(--theme--font__size__heading, var(--theme--font__size)));
+$font__size-heading: var(--theme--font__size__heading, var(--theme--font__size, 1.3rem));
+$font__size-button: var(--theme--font__size__button, var(--theme--font__size__heading, var(--theme--font__size, 1.3rem)));
 
 $text-scale-ratio: var(--theme--font__scale-ratio, 1.1);
