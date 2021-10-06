@@ -1,7 +1,11 @@
 p {
   margin-bottom: 1.5em;
-  font-size: 1.2rem;
-  font-size: $font__size-p;
+}
+
+p, li:not(.menu-item), td, th {
+  font-size: $font__size;
+  line-height: $font__line-height-body;
+  letter-spacing: $font__letter-spacing-body;
 }
 
 dfn,

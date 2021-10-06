@@ -4,7 +4,7 @@ textarea {
   color: $color__text-main;
   color: var(--text-color);
   font-family: $font__main;
-  font-size: 1rem;
+  font-size: var(--theme--font__size, 1em);
   line-height: $font__line-height-body;
 }
 
@@ -12,6 +12,5 @@ textarea {
 @import "copy";
 
 .text-heavy {
-  color: black;
-  color: var(--theme--color__heavy) !important;
+  color: var(--theme--color__heavy, black) !important;
 }

@@ -1,9 +1,10 @@
 .btn {
   text-transform: uppercase;
-  font-family: $font__headings;
+  font-family: $font__buttons;
+  font-size: calc(#{$font__size-button} / #{$text-scale-ratio} / #{$text-scale-ratio});
+  letter-spacing: $font__letter-spacing-button;
+  line-height: $font__line-height-button;
   font-weight: bold;
-  letter-spacing: .1em;
-  min-width: 5rem;
   border-radius: var(--button-radius, 0);
   @extend .shadow;
   min-width: 100px;
