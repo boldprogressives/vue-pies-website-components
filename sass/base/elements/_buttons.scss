@@ -1,7 +1,8 @@
 .btn {
   text-transform: uppercase;
   font-family: $font__buttons;
-  font-size: calc(#{$font__size-button} / #{$text-scale-ratio} / #{$text-scale-ratio});
+    --tmp-size: var(--theme--font__size__button, var(--theme--font__size__heading, var(--theme--font__size)));
+  font-size:  calc(var(--tmp-size) / #{$text-scale-ratio});
   letter-spacing: $font__letter-spacing-button;
   line-height: $font__line-height-button;
   font-weight: bold;
