@@ -6,6 +6,7 @@ p, li:not(.menu-item), td, th {
   font-size: $font__size;
   line-height: $font__line-height-body;
   letter-spacing: $font__letter-spacing-body;
+  font-family: $font__main;  
 }
 
 dfn,
