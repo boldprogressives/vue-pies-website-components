@@ -13,6 +13,7 @@
                  :is="maybeNuxtImg" v-for="img, index in images"
                  :key="index"
                  :src="img"
+                 v-bind="maybeNuxtImgProps(img)"
                  :class="index === visibleImageIndex ? '' : 'hidden'">
       </component>
     </slot>
@@ -64,6 +65,12 @@ export default {
     },
   },
   methods: {
+    maybeNuxtImgProps (img) {
+      if (!this.useNuxtImg()) return {};
+      return {
+        loading: 'lazy',
+      };
+    },
     useNuxtImg () {
       if (!this.$nuxt) {
         return false;
