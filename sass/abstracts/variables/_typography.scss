@@ -4,6 +4,10 @@ $font__main: var(--theme--font__text, -apple-system, BlinkMacSystemFont, "Segoe 
 $font__headings: var(--theme--font__heading, var(--theme--font__text, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif));
 $font__buttons: var(--theme--font__button, var(--theme--font__heading, var(--theme--font__text, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif)));
 
+$mobile__font__main: $font__main;
+$mobile__font__headings: $font__headings;
+$mobile__font__buttons: $font__buttons;
+
 // stylelint-enable value-keyword-case
 $font__code: monaco, consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
 $font__pre: "Courier 10 Pitch", courier, monospace;
@@ -11,10 +15,16 @@ $font__pre: "Courier 10 Pitch", courier, monospace;
 $font__line-height-body: var(--theme--font__line-height, 1.5);
 $font__line-height-heading: var(--theme--font__line-height__heading, 1.35);
 $font__line-height-button: var(--theme--font__line-height__button, 1.5);
-
 $font__letter-spacing-body: var(--theme--font__letter-spacing, .01em);
 $font__letter-spacing-heading: var(--theme--font__letter-spacing__heading, .01em);
 $font__letter-spacing-button: var(--theme--font__letter-spacing__button, .1em);
+
+$mobile__font__line-height-body: var(--theme--mobile--font__line-height, #{$font__line-height-body});
+$mobile__font__line-height-heading: var(--theme--mobile--font__line-height__heading, #{$font__line-height-heading});
+$mobile__font__line-height-button: var(--theme--mobile--font__line-height__button, #{$font__line-height-button});
+$mobile__font__letter-spacing-body: var(--theme--mobile--font__letter-spacing, #{$font__letter-spacing-body});
+$mobile__font__letter-spacing-heading: var(--theme--mobile--font__letter-spacing__heading, #{$font__letter-spacing-heading});
+$mobile__font__letter-spacing-button: var(--theme--mobile--font__letter-spacing__button, #{$font__letter-spacing-button});
 
 $font__line-height-pre: $font__line-height-body;
 
@@ -26,4 +36,4 @@ $text-scale-ratio: var(--theme--font__scale-ratio, 1.1);
 $mobile__font__size: var(--theme--mobile--font__size, #{$font__size});
 $mobile__font__size-heading: var(--theme--mobile--font__size__heading, #{$font__size-heading});
 $mobile__font__size-button: var(--theme--mobile--font__size__button, #{$font__size-button});
-$mobile__text-scale-ratio: var(--theme--mobile--font__scale-ratio, #${text-scale-ratio});
+$mobile__text-scale-ratio: var(--theme--mobile--font__scale-ratio, #{$text-scale-ratio});

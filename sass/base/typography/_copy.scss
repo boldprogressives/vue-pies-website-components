@@ -6,7 +6,14 @@ p, li:not(.menu-item), td, th {
   font-size: $font__size;
   line-height: $font__line-height-body;
   letter-spacing: $font__letter-spacing-body;
-  font-family: $font__main;  
+  font-family: $font__main;
+
+  @include media-breakpoint-down(lg) {
+    font-size: $mobile__font__size;
+    line-height: $mobile__font__line-height-body;
+    letter-spacing: $mobile__font__letter-spacing-body;
+    font-family: $mobile__font__main;
+  }
 }
 
 dfn,

@@ -52,10 +52,10 @@ h7, .h7 {
   h5,
   h6 {
     clear: both;
-    font-family: $font__headings;
+    font-family: $mobile__font__headings;
     font-weight: bold;
-    line-height: $font__line-height-heading;
-    letter-spacing: $font__letter-spacing-heading;  
+    line-height: $mobile__font__line-height-heading;
+    letter-spacing: $mobile__font__letter-spacing-heading;  
     text-align: center;
   }
 
