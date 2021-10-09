@@ -13,7 +13,12 @@ textarea {
 
   form {
     text-align: left;
+    color: var(--form-field-text-color, black);
 
+    .form-check {
+      color: var(--form-transparent-field-text-color, white);
+    }
+    
     input[type="text"],
     input[type="email"],
     input[type="url"],
@@ -31,7 +36,11 @@ textarea {
     input[type="color"],
     textarea {
       @extend .form-control;
-      border-radius: var(--button-radius, 0);
+
+      background-color: var(--form-field-color, white);
+      border-color: var(--form-field-border-color, transparent);
+      border-width: var(--form-field-border-width, 1px);
+      border-radius: var(--form-field-radius, var(--button-radius, 0));
     }
 
     input[type=submit] {
@@ -42,18 +51,32 @@ textarea {
       height: calc(3.5rem + 2px);
       padding: 1rem 1.5rem;
       
-      background-color: var(--button-color);
-      border-color: var(--button-color);
-      color: var(--button-text-color);
-
+      background-color: var(--form-button-color, var(--button-color));
+      border-color: var(--form-button-color, var(button-color));
+      color: var(--form-button-text-color, var(button-text-color));
+      border-width: var(--button-border-width, 1px);
       transition: all .3s ease;
-      
+
       &:hover {
-        font-size: 1.05rem;
+        background-color: var(--form-button-color__hover, var(--button-color__hover));
+        border-color: var(--form-button-color__hover, var(--button-color__hover));
+        color: var(--form-button-text-color__hover, var(--button-text-color__hover));
       }
     }
 
-  }  
+  }
+
+  @include media-breakpoint-down(lg) {
+    .row {
+      margin-left: auto !important;
+      margin-right: auto !important;
+
+      .col {
+        flex-basis: 100% !important;
+      }
+    }
+    
+  }
 }
 
 .fade-enter-active, .fade-leave-active {

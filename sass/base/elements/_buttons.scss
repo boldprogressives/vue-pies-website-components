@@ -19,6 +19,11 @@
   justify-content: center;
   margin-left: -.75rem;
   margin-right: -.75rem;  
+
+  @include media-breakpoint-down(lg) {
+    margin-left: 0;
+    margin-right: 0;
+  }
   
   .wp-block-button {
 

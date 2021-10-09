@@ -66,7 +66,9 @@
     flex-wrap: wrap;
     min-height: 0 !important;
     max-height: unset !important;
-        
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    
     > div {
       flex: 0 0 100% !important;
       clip-path: none !important;
@@ -82,6 +84,21 @@
       &:after {
         display: none !important;
       }
+    }
+    > div:not(.media-side) * {
+      max-width: 100% !important;
+    }
+
+    &.media-unit__mobile-reversed {
+      flex-direction: column-reverse !important;
+    }
+    &.media-unit__mobile-imageless {
+      > div.media-side {
+        display: none !important;
+      }
+    }
+    &.media-unit__mobile-hidden {
+      display: none !important;
     }
   }
 }
