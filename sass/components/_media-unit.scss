@@ -87,10 +87,13 @@
         display: none !important;
       }
     }
-    > div:not(.media-side) * {
-      max-width: 100% !important;
+    > div:not(.media-side) {
       padding-left: 2vw !important;
       padding-right: 2vw !important;
+      
+      * {
+        max-width: 100% !important;
+      }
     }
 
     &.media-unit__mobile-reversed {
