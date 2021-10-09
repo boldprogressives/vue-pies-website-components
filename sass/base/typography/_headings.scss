@@ -43,3 +43,51 @@ h6, .h6 {
 h7, .h7 {
   font-size: calc(#{$font__size-heading} / #{$text-scale-ratio} / #{$text-scale-ratio});
 }
+
+@include media-breakpoint-down(lg) {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    clear: both;
+    font-family: $font__headings;
+    font-weight: bold;
+    line-height: $font__line-height-heading;
+    letter-spacing: $font__letter-spacing-heading;  
+    text-align: center;
+  }
+
+  .text-xxl {
+    font-size: calc(#{$mobile__font__size-heading} * #{$mobile__text-scale-ratio} * #{$mobile__text-scale-ratio} * #{$mobile__text-scale-ratio} * #{$mobile__text-scale-ratio} * #{$mobile__text-scale-ratio});
+  }
+
+  h1, .h1 {
+    font-size: calc(#{$mobile__font__size-heading} * #{$mobile__text-scale-ratio} * #{$mobile__text-scale-ratio} * #{$mobile__text-scale-ratio} * #{$mobile__text-scale-ratio});
+  }
+
+  h2, .h2 {
+    font-size: calc(#{$mobile__font__size-heading} * #{$mobile__text-scale-ratio} * #{$mobile__text-scale-ratio} * #{$mobile__text-scale-ratio});
+  }
+
+  h3, .h3 {
+    font-size: calc(#{$mobile__font__size-heading} * #{$mobile__text-scale-ratio} * #{$mobile__text-scale-ratio});
+  }
+
+  h4, .h4 {
+    font-size: calc(#{$mobile__font__size-heading} * #{$mobile__text-scale-ratio});
+  }
+
+  h5, .h5 {
+    font-size: calc(#{$mobile__font__size-heading});
+  }
+
+  h6, .h6 {
+    font-size: calc(#{$mobile__font__size-heading} / #{$mobile__text-scale-ratio});
+  }
+
+  h7, .h7 {
+    font-size: calc(#{$mobile__font__size-heading} / #{$mobile__text-scale-ratio} / #{$mobile__text-scale-ratio});
+  }
+}

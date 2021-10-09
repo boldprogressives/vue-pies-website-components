@@ -21,5 +21,9 @@ $font__line-height-pre: $font__line-height-body;
 $font__size: var(--theme--font__size, 1.3rem);
 $font__size-heading: var(--theme--font__size__heading, var(--theme--font__size, 1.3rem));
 $font__size-button: var(--theme--font__size__button, var(--theme--font__size__heading, var(--theme--font__size, 1.3rem)));
-
 $text-scale-ratio: var(--theme--font__scale-ratio, 1.1);
+
+$mobile__font__size: var(--theme--mobile--font__size, #{$font__size});
+$mobile__font__size-heading: var(--theme--mobile--font__size__heading, #{$font__size-heading});
+$mobile__font__size-button: var(--theme--mobile--font__size__button, #{$font__size-button});
+$mobile__text-scale-ratio: var(--theme--mobile--font__scale-ratio, #${text-scale-ratio});

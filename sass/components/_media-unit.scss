@@ -90,9 +90,11 @@
     > div:not(.media-side) {
       padding-left: 2vw !important;
       padding-right: 2vw !important;
+      max-width: 100% !important;
       
       * {
         max-width: 100% !important;
+        word-break: break-word !important;
       }
     }
 
