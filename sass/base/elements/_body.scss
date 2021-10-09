@@ -7,7 +7,7 @@ body {
 
 }
 
-#masthead {
+#masthead, .masthead {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -15,9 +15,9 @@ body {
   background: var(--header-background-color);
   padding: .5rem 1rem;
 
-  #site-navigation {
+  #site-navigation, .site-navigation {
     
-    #primary-menu.nav-menu, #primary-menu .nav-menu {
+    #primary-menu.nav-menu, .primary-menu.nav-menu, #primary-menu .nav-menu, .primary-menu .nav-menu {
       display: flex;
       justify-content: flex-end;
       margin-right: 0;
@@ -44,6 +44,47 @@ body {
       }
     }
   }
+}
+
+footer.masthead {
+  display: block;
+  margin-top: 0;
+  margin-bottom: 0;
+  text-align: center;
+  background: $primary;
+  background-color: var(--theme--color__heavy);
+  color: white;
+  margin-top: 5rem;
+  margin-bottom: -2rem;
+  font-size: 1rem;
+  
+  #fec {
+    border: 1px solid black;
+    padding: 1rem;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .site-navigation .primary-menu.nav-menu {
+    justify-content: center;
+  }
+}
+
+.social-icons svg path {
+  fill: var(--button-color, white);
+  transition: all .2s ease;
+}
+.social-icons svg:hover path {
+  fill: var(--button-color__hover, black);
+  transition: all .5s ease;
+}
+.disclaimer {
+  max-width: 800px;
+  width: 100%;
+  margin: 2rem auto;
+  border: 2px solid white;
+  padding: 1rem;
+  line-height: 1.2;
 }
 
 div.entry-content {
@@ -74,21 +115,5 @@ div.entry-content {
   height: 100%;
 }
 
-footer {
-  padding: 5rem;
-  text-align: center;
-  background: $primary;
-  background-color: var(--theme--color__heavy);
-  color: white;
-  margin-top: 5rem;
-  margin-bottom: -2rem;
-  
-  #fec {
-    border: 1px solid black;
-    padding: 1rem;
-    max-width: 500px;
-    margin: 0 auto;
-  }
-}
 
 
