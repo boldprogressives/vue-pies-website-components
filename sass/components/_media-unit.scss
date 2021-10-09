@@ -89,6 +89,8 @@
     }
     > div:not(.media-side) * {
       max-width: 100% !important;
+      padding-left: 2vw !important;
+      padding-right: 2vw !important;
     }
 
     &.media-unit__mobile-reversed {
