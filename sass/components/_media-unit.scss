@@ -99,6 +99,27 @@
         display: none !important;
       }
     }
+    &.media-unit__mobile-absolute {
+      > div.media-side {
+        max-height: unset !important;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+        img {
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          object-fit: cover;
+          object-position: center;
+          opacity: .4;
+        }
+      }
+    }
     &.media-unit__mobile-hidden {
       display: none !important;
     }
