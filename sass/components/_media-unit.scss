@@ -40,6 +40,9 @@
     --image-aspect-ratio: calc(var(--image-height) / var(--image-width) * 100%);
 
     @include media-breakpoint-down(lg) {
+      .media-unit--background-video {
+        position: unset;
+      }
       img {
         position: unset;
 
@@ -131,7 +134,14 @@
           opacity: .4;
         }
       }
+
+      &.media-unit--has-background-video {
+        > div.media-side {
+          z-index: 0;
+        }
+      }
     }
+
     &.media-unit__mobile-hidden {
       display: none !important;
     }
