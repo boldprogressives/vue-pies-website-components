@@ -1,5 +1,5 @@
 <template>
-<div :id="uuid" :ref="uuid" class="media-unit foo"
+<div :id="uuid" :ref="uuid" class="media-unit foo" :class="video ? 'media-unit--has-background-video' : ''"
      :style="mergedStyles">
   <slot name="backgrounds"></slot>
   <span class="media-unit--overlay"></span>
@@ -116,6 +116,9 @@ export default {
 </script>
 
 <style>
+.media-unit--has-background-video .media-side {
+  z-index: 999;
+}
 .media-unit--background-video {
   position: absolute;
   top: 0;

@@ -28,7 +28,7 @@ export default {
       if (!this.video) return '';
       if (this.video.match(/youtube/)) {
         const id = this.video.split('?v=')[1];
-        return `<iframe frameborder="0" height="100%" width="100%" src="https://youtube.com/embed/${id}?autoplay=1&controls=0&showinfo=0&autohide=1&loop=1&mute=1">`;
+        return `<iframe frameborder="0" src="https://youtube.com/embed/${id}?autoplay=1&controls=0&showinfo=0&autohide=1&loop=1&mute=1">`;
       }
 
     },
@@ -100,3 +100,10 @@ export default {
   },
 }
 </script>
+
+<style>
+.media-unit--overlay iframe {
+  width: 100%;
+  height: 100%;
+}
+</style>
