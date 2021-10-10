@@ -48,7 +48,7 @@ textarea {
       @extend .btn-secondary;
       @extend .w-100;
 
-      height: calc(3.5rem + 2px);
+      min-height: calc(3.5rem + 2px);
       padding: 1rem 1.5rem;
       
       background-color: var(--form-button-color, var(--button-color));
