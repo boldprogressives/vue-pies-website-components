@@ -45,6 +45,7 @@ h7, .h7 {
 }
 
 @include media-breakpoint-down(lg) {
+  .text-xxl,
   h1,
   h2,
   h3,
@@ -57,37 +58,38 @@ h7, .h7 {
     line-height: $mobile__font__line-height-heading;
     letter-spacing: $mobile__font__letter-spacing-heading;  
     text-align: center;
+    --tmp-size: $mobile__font__size-heading;
   }
 
   .text-xxl {
-    font-size: calc(#{$mobile__font__size-heading} * #{$mobile__text-scale-ratio} * #{$mobile__text-scale-ratio} * #{$mobile__text-scale-ratio} * #{$mobile__text-scale-ratio} * #{$mobile__text-scale-ratio});
+    font-size: calc(var(--tmp-size) * #{$mobile__text-scale-ratio} * #{$mobile__text-scale-ratio} * #{$mobile__text-scale-ratio} * #{$mobile__text-scale-ratio} * #{$mobile__text-scale-ratio});
   }
 
   h1, .h1 {
-    font-size: calc(#{$mobile__font__size-heading} * #{$mobile__text-scale-ratio} * #{$mobile__text-scale-ratio} * #{$mobile__text-scale-ratio} * #{$mobile__text-scale-ratio});
+    font-size: calc(var(--tmp-size) * #{$mobile__text-scale-ratio} * #{$mobile__text-scale-ratio} * #{$mobile__text-scale-ratio} * #{$mobile__text-scale-ratio});
   }
 
   h2, .h2 {
-    font-size: calc(#{$mobile__font__size-heading} * #{$mobile__text-scale-ratio} * #{$mobile__text-scale-ratio} * #{$mobile__text-scale-ratio});
+    font-size: calc(var(--tmp-size) * #{$mobile__text-scale-ratio} * #{$mobile__text-scale-ratio} * #{$mobile__text-scale-ratio});
   }
 
   h3, .h3 {
-    font-size: calc(#{$mobile__font__size-heading} * #{$mobile__text-scale-ratio} * #{$mobile__text-scale-ratio});
+    font-size: calc(var(--tmp-size) * #{$mobile__text-scale-ratio} * #{$mobile__text-scale-ratio});
   }
 
   h4, .h4 {
-    font-size: calc(#{$mobile__font__size-heading} * #{$mobile__text-scale-ratio});
+    font-size: calc(var(--tmp-size) * #{$mobile__text-scale-ratio});
   }
 
   h5, .h5 {
-    font-size: calc(#{$mobile__font__size-heading});
+    font-size: calc(var(--tmp-size));
   }
 
   h6, .h6 {
-    font-size: calc(#{$mobile__font__size-heading} / #{$mobile__text-scale-ratio});
+    font-size: calc(var(--tmp-size) / #{$mobile__text-scale-ratio});
   }
 
   h7, .h7 {
-    font-size: calc(#{$mobile__font__size-heading} / #{$mobile__text-scale-ratio} / #{$mobile__text-scale-ratio});
+    font-size: calc(var(--tmp-size) / #{$mobile__text-scale-ratio} / #{$mobile__text-scale-ratio});
   }
 }

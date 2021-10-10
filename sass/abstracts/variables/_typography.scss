@@ -30,7 +30,7 @@ $font__line-height-pre: $font__line-height-body;
 
 $font__size: var(--theme--font__size, 1.3rem);
 $font__size-heading: var(--theme--font__size__heading, var(--theme--font__size, 1.3rem));
-$font__size-button: var(--theme--font__size__button, var(--theme--font__size__heading, var(--theme--font__size, 1.3rem)));
+$font__size-button: var(--theme--font__size__button, #{$font__size-heading});
 $text-scale-ratio: var(--theme--font__scale-ratio, 1.1);
 
 $mobile__font__size: var(--theme--mobile--font__size, #{$font__size});
