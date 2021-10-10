@@ -128,8 +128,8 @@ export default {
   z-index: 999;
 }
 .media-unit--background-video iframe {
-  width: 100%;
-  height: 100%;
+  width: 100% !important;
+  height: 100% !important;
 }
 .media-side img {
   transition: opacity .3s ease;
