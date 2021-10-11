@@ -58,7 +58,7 @@ h7, .h7 {
     line-height: $mobile__font__line-height-heading;
     letter-spacing: $mobile__font__letter-spacing-heading;  
     text-align: center;
-    --tmp-size: $mobile__font__size-heading;
+    --tmp-size: var(--theme--mobile--font__size__heading, #{$font__size-heading});
   }
 
   .text-xxl {
