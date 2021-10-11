@@ -19,7 +19,7 @@
     </slot>
   </div>
   
-  <div ref="content" style="position: relative" :style="contentStyles">
+  <div ref="content" style="position: relative" :style="contentStyles" :class="contentClass">
     <slot></slot>
   </div>
 </div>
@@ -31,6 +31,7 @@ export default {
   props: [
     'styles',
     'contentStyles',
+    'contentClass',
     'mediaStyles',
     'image',
     'video',
