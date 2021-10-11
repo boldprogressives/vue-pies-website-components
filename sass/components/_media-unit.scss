@@ -151,6 +151,10 @@
 .media-unit--content-wrapper {
   display: block;
   flex: 1;
+
+  @include media-breakpoint-down(lg) {
+    flex: 100%;
+  }
 }
 
 .has-wrapped-content {
