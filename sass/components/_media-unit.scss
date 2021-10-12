@@ -179,6 +179,14 @@
     flex-direction: row;
   }
 
+  &.display-first-child-fill {
+    flex-wrap: wrap;
+
+    > :first-child {
+      flex-basis: 100%;
+    }
+  }
+
   .media-unit--content-wrapper {
     align-self: stretch;
   }
