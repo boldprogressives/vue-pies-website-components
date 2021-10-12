@@ -77,6 +77,8 @@
     margin-bottom: 0 !important;
     padding-top: 0 !important;
     padding-bottom: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
     
     > div {
       flex: 0 0 100% !important;
@@ -99,6 +101,8 @@
     > div:not(.media-side) {
       padding-left: 2vw !important;
       padding-right: 2vw !important;
+      padding-top: 1vh !important;
+      padding-bottom: 1vh !important;
       max-width: 100% !important;
       min-width: 100% !important;      
       flex-basis: 100% !important;      
