@@ -35,7 +35,7 @@
   }
   
   > div.media-side {
-    flex-basis: min(var(--image-width) * 1px, var(--media-unit--media__width));
+    flex-basis: var(--media-unit--media__width);
     @extend .image-aspect-ratio-container;
     --image-aspect-ratio: calc(var(--image-height) / var(--image-width) * 100%);
 
@@ -59,7 +59,6 @@
   }
 
   > div:not(.media-side) {
-    flex-basis: calc(100% - min(var(--image-width) * 1px, var(--media-unit--media__width)));
     display: flex;
     flex-direction: column;
     align-items: center;
