@@ -1,12 +1,34 @@
 <template>
-<div data-v-77b5d34c="" class="wp-block-buttons"><div data-v-77b5d34c="" class="wp-block-button"><a data-v-77b5d34c="" href="https://sample-site-1.campaignpies.com/sample-page/" class="wp-block-button__link">{{ b1 || 'Join Us' }}</a></div><div data-v-77b5d34c="" class="wp-block-button"><a data-v-77b5d34c="" href="https://sample-site-1.campaignpies.com/hello-world/" class="wp-block-button__link">{{ b2 || ' Donate' }}</a></div>
-<div v-if="b3" data-v-77b5d34c="" class="wp-block-button"><a data-v-77b5d34c="" href="https://sample-site-1.campaignpies.com/hello-world/" class="wp-block-button__link">{{ b3 }}</a></div>
+<div class="wp-block-buttons">
+  <div class="wp-block-button">
+    <template v-for="link, index in links || []" :key="index">
+      <component v-if="useNuxtLink(link.href)" is="nuxt-link"
+                 :to="link.href" class="wp-block-button__link">
+        {{ link.text }}
+      </component>
+      <a v-else :href="link.href" class="wp-block-button__link">
+        {{ link.text }}
+      </a>
+    </template>
+  </div>
 </div>
 </template>
 
 <script>
 export default {
   name: 'PButtons',
-  props: ['b1', 'b2', 'b3'],
+  props: ['links'],
+
+  methods: {
+    useNuxtLink (href) {
+      if (!this.$nuxt) {
+        return false;
+      }
+      if (href.match(/:\/\//)) {
+        return false;
+      }
+      return true;
+    },
+  },
 }
 </script>
