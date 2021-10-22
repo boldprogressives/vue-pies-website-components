@@ -14,7 +14,7 @@
 .wp-block-buttons {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
+  flex-wrap: var(--button-wrap, wrap);
   column-gap: .5em;
   justify-content: center;
   margin-left: -.75rem;
