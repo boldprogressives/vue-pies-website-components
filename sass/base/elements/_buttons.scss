@@ -24,6 +24,7 @@
   @include media-breakpoint-down(lg) {
     margin-left: 0;
     margin-right: 0;
+    flex-wrap: wrap !important;
   }
 }
 
