@@ -2,6 +2,10 @@ p {
   margin-bottom: 1.5em;
 }
 
+p:last-child {
+  margin-bottom: 0;
+}
+
 p, li:not(.menu-item), td, th {
   font-size: $font__size;
   line-height: $font__line-height-body;

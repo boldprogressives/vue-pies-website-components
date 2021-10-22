@@ -19,7 +19,8 @@
   justify-content: center;
   margin-left: -.75rem;
   margin-right: -.75rem;  
-
+  margin-bottom: -1em;
+  
   @include media-breakpoint-down(lg) {
     margin-left: 0;
     margin-right: 0;
@@ -35,10 +36,11 @@
 a.wp-block-button__link {
   @extend .btn;
   @extend .btn-secondary;
-
+  
   background-color: var(--button-color);
   border-color: var(--button-color);
   color: var(--button-text-color);
+  width: var(--button-width, auto);
 
   &:hover {
     background-color: var(--button-color__hover);
