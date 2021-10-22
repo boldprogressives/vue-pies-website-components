@@ -254,6 +254,10 @@
       @extend .alignment-stretch-centered;
     }
 
+    &.alignment-stretch-apart-centered {
+      @extend .alignment-stretch-apart-centered;
+    }
+    
     &.alignment-fit-centered {
       @extend .alignment-fit-centered;
     }
