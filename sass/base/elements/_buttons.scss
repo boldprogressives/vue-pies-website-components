@@ -44,6 +44,7 @@ a.wp-block-button__link {
   border-color: var(--button-color);
   color: var(--button-text-color);
   width: var(--button-width, auto);
+  min-width: var(--button-width, 100px);  
 
   &:hover {
     background-color: var(--button-color__hover);
