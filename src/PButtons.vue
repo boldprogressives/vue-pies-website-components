@@ -1,15 +1,13 @@
 <template>
 <div class="wp-block-buttons">
-  <div class="wp-block-button">
-    <template v-for="link, index in links || []" :key="index">
-      <component v-if="useNuxtLink(link.href)" is="nuxt-link"
-                 :to="link.href" class="wp-block-button__link">
-        {{ link.text }}
-      </component>
-      <a v-else :href="link.href" class="wp-block-button__link">
-        {{ link.text }}
-      </a>
-    </template>
+  <div class="wp-block-button" v-for="link, index in links || []" :key="index">
+    <component v-if="useNuxtLink(link.href)" is="nuxt-link"
+               :to="link.href" class="wp-block-button__link">
+      {{ link.text }}
+    </component>
+    <a v-else :href="link.href" class="wp-block-button__link">
+      {{ link.text }}
+    </a>
   </div>
 </div>
 </template>
