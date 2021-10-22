@@ -10,6 +10,14 @@ h6 {
   line-height: $font__line-height-heading;
   letter-spacing: $font__letter-spacing-heading;  
   text-align: center;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 
 .text-xxl {

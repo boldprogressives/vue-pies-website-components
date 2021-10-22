@@ -219,14 +219,16 @@
     justify-content: space-between;
     align-items: flex-start;
 
-    &:first-child {
-      justify-content: center;
-      align-items: flex-start;
-    }
-
-    &:last-child {
-      justify-content: center;
-      align-items: flex-end;
+    @include media-breakpoint-up(lg) {
+      &:first-child {
+        justify-content: center;
+        align-items: flex-start;
+      }
+      
+      &:last-child {
+        justify-content: center;
+        align-items: flex-end;
+      }
     }
   }
 }
