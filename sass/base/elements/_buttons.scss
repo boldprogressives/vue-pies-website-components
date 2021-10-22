@@ -24,32 +24,29 @@
     margin-left: 0;
     margin-right: 0;
   }
-  
-  .wp-block-button {
-
-    margin-bottom: 1em;
-    
-    a.wp-block-button__link {
-      @extend .btn;
-      @extend .btn-secondary;
-
-      background-color: var(--button-color);
-      border-color: var(--button-color);
-      color: var(--button-text-color);
-
-      &:hover {
-        background-color: var(--button-color__hover);
-        border-color: var(--button-color__hover);
-        color: var(--button-text-color__hover);
-      }
-    }
-    
-    margin-left: .75rem;
-    margin-right: .75rem;
-    
-  }
 }
 
+.wp-block-button {
+  margin-left: .75rem;
+  margin-right: .75rem;
+  margin-bottom: 1em;
+}  
+
+a.wp-block-button__link {
+  @extend .btn;
+  @extend .btn-secondary;
+
+  background-color: var(--button-color);
+  border-color: var(--button-color);
+  color: var(--button-text-color);
+
+  &:hover {
+    background-color: var(--button-color__hover);
+    border-color: var(--button-color__hover);
+    color: var(--button-text-color__hover);
+  }
+}
+    
 .btn-tertiary {
   font-size: 1em;
   padding: ($input-btn-padding-y / 2) ($input-btn-padding-x / 2);
