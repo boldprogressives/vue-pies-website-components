@@ -28,8 +28,8 @@
 }
 
 .wp-block-button {
-  margin-left: .75rem;
-  margin-right: .75rem;
+  margin-left: var(--button-margin-left, .75rem);
+  margin-right: var(--button-margin-right, .75rem);
   margin-bottom: 1em;
 }  
 
