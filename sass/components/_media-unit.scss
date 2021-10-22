@@ -220,11 +220,13 @@
     align-items: flex-start;
 
     &:first-child {
-      justify-content: flex-start;
+      justify-content: center;
+      align-items: flex-start;
     }
 
     &:last-child {
-      justify-content: flex-end;
+      justify-content: center;
+      align-items: flex-end;
     }
   }
 }
