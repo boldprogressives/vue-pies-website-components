@@ -19,6 +19,8 @@
   display: flex;
   flex-wrap: nowrap;
   overflow: hidden;
+  margin-left: auto;
+  margin-right: auto;
   
   > .media-unit--overlay {
     position: absolute;
@@ -58,6 +60,13 @@
     }
   }
 
+  &.media-untethered {
+    > div.media-side img {
+      position: initial;
+      object-fit: contain;
+    }
+  }
+  
   > div:not(.media-side) {
     display: flex;
     flex-direction: column;
