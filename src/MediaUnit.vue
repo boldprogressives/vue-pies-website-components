@@ -35,6 +35,7 @@ export default {
     'mediaStyles',
     'image',
     'video',
+    'loading',
     'uuid',
   ],
   computed: {
@@ -69,7 +70,7 @@ export default {
     maybeNuxtImgProps (img) {
       if (!this.useNuxtImg()) return {};
       return {
-        loading: 'lazy',
+        loading: this.loading || 'lazy',
       };
     },
     useNuxtImg () {
