@@ -228,6 +228,16 @@
   }
 }
 
+.has-wrapped-content.alignment-centered-apart {
+  .media-unit--content-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+  }
+}
+
 .has-wrapped-content.alignment-stretch-apart-centered {
   .media-unit--content-wrapper {
     display: flex;
