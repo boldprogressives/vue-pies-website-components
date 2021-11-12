@@ -50,8 +50,8 @@ textarea {
       @extend .w-100;
 
       background-color: var(--form-button-color, var(--button-color));
-      border-color: var(--form-button-color, var(button-color));
-      color: var(--form-button-text-color, var(button-text-color));
+      border-color: var(--form-button-color, var(--button-color));
+      color: var(--form-button-text-color, var(--button-text-color));
       border-width: var(--button-border-width, 1px);
       transition: all .3s ease;
 
