@@ -2,10 +2,10 @@
 <li class="wp-block-latest-posts--tile" :class="className">
 
   <div class="wp-block-latest-posts__featured-image">
-    <component is="nuxt-link" v-if="useNuxtLink(href)" :to="href">
+    <a v-if="useNuxtLink(href)" :href="href">
       <component :is="maybeNuxtImg" :src="image"></component>
-    </component>
-    <a v-else :href="href">
+    </a>
+    <a v-else :href="href" target="_blank">
       <component :is="maybeNuxtImg" :src="image"></component>
     </a>
   </div>
@@ -16,10 +16,10 @@
   </div>
   
   <div class="wp-block-latest-posts__post-meta">
-    <component is="nuxt-link" v-if="useNuxtLink(href)" :to="href">
+    <a v-if="useNuxtLink(href)" :href="href">
       Read More
-    </component>
-    <a v-else :href="href">
+    </a>
+    <a v-else :href="href" target="_blank">
       Read More
     </a>
   </div>
