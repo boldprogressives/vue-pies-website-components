@@ -1,31 +1,41 @@
 <template>
 <div class="form-wrapper">
-  <transition name="slide">
-    <form method="POST" @submit.prevent="submitForm" v-if="!submitted">
-      <transition name="fade">
-        <slot name="form" v-bind:fields="fields" v-bind:uuid="uuid" v-bind:submit="submit" v-bind:submitForm="submitForm">
-        </slot>
-      </transition>
-    </form>
+  <form method="POST" @submit.prevent="submitForm" v-if="!submitted">
+    <slot name="form" v-bind:fields="fields" v-bind:uuid="uuid" v-bind:submit="submit" v-bind:submitForm="submitForm">
+    </slot>
+  </form>
 
-    <div v-if="submitted">
-      <slot name="thanks" v-bind:fields="fields">
-        <h3>
-          Thank you for your submission! We'll be in touch.
-        </h3>
-      </slot>
-    </div>
-  </transition>
+  <div v-if="submitted && !renderedSuccessRedirect" v-html="renderedSuccessMessage">
+  </div>
 </div>
 </template>
 
 <script>
+import Handlebars from "handlebars";
+
 export default {
   name: 'PForm',
   props: [
     'uuid',
-    'submit'
+    'submit',
+    'successRedirect',
+    'successMessage',
+    'extra',
+    'extraFields',
   ],
+  computed: {
+    renderedSuccessMessage () {
+      const msg = this.successMessage || `<h3>Thank you for your submission! We'll be in touch.</h3>`;
+      return Handlebars.compile(msg)({ fields: this.fields });
+    },
+    renderedSuccessRedirect () {
+      if (!this.sucessRedirect) {
+        return null;
+      } else {
+        return Handlebars.compile(this.successRedirect)({ fields: this.fields });
+      }
+    },
+  },
   methods: {
     async submitForm () {
       if (!this.$pies) {
@@ -34,7 +44,11 @@ export default {
       }
       
       const response = await this.$fire.firestore.collection("website-form-submissions").add({
-        fields: this.fields,
+        ...(this.extra || {}),
+        fields: {
+          ...this.fields,
+          ...(this.extraFields || {}),
+        },
         meta: {
           userAgent: navigator.userAgent,
           referrer: document.referrer,
@@ -42,8 +56,12 @@ export default {
         },
         form: this.uuid,
         site: this.$pies.site,
-        timestamp: this.$fireModule.firestore.FieldValue.serverTimestamp()
+        timestamp: this.$fireModule.firestore.FieldValue.serverTimestamp(),
       });
+
+      if (this.renderedSuccessRedirect) {
+        window.location = this.renderedSuccessRedirect;
+      }
       this.submitted = true;
     },
   },
