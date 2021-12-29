@@ -16,4 +16,13 @@ async function fetchFeeds ({ $content, feedConfig, pageTree }) {
   return myFeeds;
 }
 
-export { fetchFeeds }
+function commonComputed () {
+  return {
+    now: () => new Date(),
+  }
+}
+
+export { fetchFeeds, commonComputed }
+
+
+
