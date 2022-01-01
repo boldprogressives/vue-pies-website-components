@@ -62,7 +62,7 @@
 
   &.media-untethered {
     > div.media-side img {
-      position: initial;
+      /* position: initial; */
       object-fit: contain;
     }
   }
