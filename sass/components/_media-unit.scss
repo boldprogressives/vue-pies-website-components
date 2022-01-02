@@ -292,5 +292,9 @@
     &.alignment-fit-centered {
       @extend .alignment-fit-centered;
     }
+
+    @include media-breakpoint-down(lg) {
+      flex-direction: row !important;
+    }
   }
 }
