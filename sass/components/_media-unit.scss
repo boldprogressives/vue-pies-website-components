@@ -112,10 +112,10 @@
       }
     }
     > div:not(.media-side) {
-      padding-left: 2vw !important;
-      padding-right: 2vw !important;
-      padding-top: 1vh !important;
-      padding-bottom: 1vh !important;
+      padding-left: var(--mobile--content-side__padding-left, 2vw) !important;
+      padding-right: var(--mobile--content-side__padding-right, 2vw) !important;
+      padding-top: var(--mobile--content-side__padding-top, 1vh) !important;
+      padding-bottom: var(--mobile--content-side__padding-bottom, 1vh) !important;
       max-width: 100% !important;
       min-width: 100% !important;      
       flex-basis: 100% !important;      
@@ -123,7 +123,11 @@
       width: 100% !important;
       flex-basis: 100% !important;
       flex-shrink: 0 !important;
-      
+      margin-top: 0 !important;
+      margin-bottom: 0 !important;
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+
       * {
         word-break: break-word !important;
       }
@@ -177,14 +181,14 @@
 
   @include media-breakpoint-down(lg) {
     flex: 100%;
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
+    margin-top: var(--mobile--content-wrapper__margin-top, 0) !important;
+    margin-bottom: var(--mobile--content-wrapper__margin-bottom, 0) !important;
+    margin-left: var(--mobile--content-wrapper__margin-left, 0) !important;
+    margin-right: var(--mobile--content-wrapper__margin-right, 0) !important;
+    padding-top: var(--mobile--content-wrapper__padding-top, 0) !important;
+    padding-bottom: var(--mobile--content-wrapper__padding-bottom, 0) !important;
+    padding-left: var(--mobile--content-wrapper__padding-left, 0) !important;
+    padding-right: var(--mobile--content-wrapper__padding-right, 0) !important;
   }
 }
 
