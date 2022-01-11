@@ -10,7 +10,7 @@ async function fetchFeeds ({ $content, feedConfig, pageTree }) {
   
   let myFeeds = {};
   for (var i = 0; i < myFeedKeys.length; ++i) {
-    myFeeds[myFeedKeys[i]] = myFeedValues[i];
+    myFeeds[myFeedKeys[i]] = myFeedValues[i].body;
   }
 
   return myFeeds;
