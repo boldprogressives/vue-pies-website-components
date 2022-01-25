@@ -47,14 +47,16 @@ a.wp-block-button__link {
   padding-right: 0;
   
   background-color: var(--button-color);
-  border-color: var(--button-color);
+  border-color: var(--button-border-color, var(--button-color));
+  border-width: var(--button-border-width, 1px);
+  
   color: var(--button-text-color);
   width: var(--button-width, auto);
   min-width: var(--button-width, 100px);  
 
   &:hover {
     background-color: var(--button-color__hover);
-    border-color: var(--button-color__hover);
+    border-color: var(--button-border-color__hover, var(--button-color__hover));
     color: var(--button-text-color__hover);
   }
 }
