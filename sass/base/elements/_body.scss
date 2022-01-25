@@ -36,6 +36,7 @@ body {
           @extend .btn;
           @extend .shadow-none;
           border: none;
+          color: var(--theme--color__text);
         }
 
       }
@@ -44,7 +45,7 @@ body {
         a {
           @extend .shadow;
           box-shadow: var(--button-shadow) !important;          
-          color: white;
+          color: var(--button-color__text);
           background-color: var(--button-color);
         }
       }
