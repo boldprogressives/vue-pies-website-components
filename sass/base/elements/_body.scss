@@ -87,7 +87,7 @@ footer.masthead {
   text-align: center;
   background: $primary;
   background-color: var(--theme--color__heavy);
-  color: white;
+  color: var(--theme--color__text);
   padding-top: 5rem;
   margin-bottom: -2rem;
   font-size: 1rem;
@@ -116,7 +116,8 @@ footer.masthead {
   max-width: 800px;
   width: 100%;
   margin: 2rem auto;
-  border: 2px solid white;
+  border: 2px solid var(--disclaimer-color, var(--theme--color__text, white));
+  color: var(--disclaimer-color, var(--theme--color__text, white));
   padding: 1rem;
   line-height: 1.2;
 }
