@@ -104,11 +104,11 @@ footer.masthead {
 }
 
 .social-icons svg path {
-  fill: var(--button-color, white);
+  fill: var(--social-button-color, var(--button-color, white));
   transition: all .2s ease;
 }
 .social-icons svg:hover path {
-  fill: var(--button-color__hover, black);
+  fill: var(--social-button-color__hover, var(--button-color__hover, black));
   transition: all .5s ease;
 }
 .disclaimer {
