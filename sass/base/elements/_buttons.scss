@@ -7,7 +7,7 @@
   line-height: $font__line-height-button;
   font-weight: bold;
   border-radius: var(--button-radius, 0);
-  @extend .shadow;
+  box-shadow: var(--button-box-shadow, 0 0.5rem 1rem rgb(0 0 0 / 15%));
   min-width: 100px;
 }
 
