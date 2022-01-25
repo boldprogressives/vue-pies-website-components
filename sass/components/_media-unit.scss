@@ -24,7 +24,8 @@
   //--media-unit--content__background: transparent;
 
   //--media-unit__min-height: none;
-  
+
+  box-shadow: var(--media-unit--box-shadow);
   position: relative;
   display: flex;
   flex-wrap: nowrap;
