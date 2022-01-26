@@ -77,6 +77,11 @@ body {
         max-height: 100vh;
         overflow: scroll;
       }
+
+      .menu-toggle {
+        position: absolute;
+        right: 0;
+      }
     }
   }
 
