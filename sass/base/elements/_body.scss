@@ -69,7 +69,7 @@ body {
     
     .menu-menu-1-container {
       max-height: 0;
-      overflow: hidden;
+      overflow: scroll;
       transition: max-height .3s ease;
 
       &.shown {
@@ -83,24 +83,30 @@ body {
 footer.masthead {
   display: block;
   margin-top: 0;
-  margin-bottom: 0;
   text-align: center;
   background: $primary;
   background-color: var(--theme--color__heavy);
   color: var(--theme--color__text);
   padding-top: 5rem;
   margin-bottom: -2rem;
+  padding-bottom: .5rem;
   font-size: 1rem;
   
   #fec {
     border: 1px solid black;
     padding: 1rem;
     max-width: 500px;
-    margin: 0 auto;
+    margin: 0 auto 2rem;
   }
 
   .site-navigation .primary-menu.nav-menu {
     justify-content: center;
+  }
+
+  @include media-breakpoint-down(lg) {
+    .menu-menu-1-container {
+      max-height: unset;
+    }
   }
 }
 
