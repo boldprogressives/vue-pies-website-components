@@ -45,7 +45,7 @@ body {
         a {
           @extend .shadow;
           box-shadow: var(--button-shadow) !important;          
-          color: var(--button-color__text);
+          color: var(--button-text-color);
           background-color: var(--button-color);
         }
       }
