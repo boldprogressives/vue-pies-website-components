@@ -78,7 +78,18 @@ body {
       }
     }
   }
-}  
+
+  #masthead:not(.footer) .menu-menu-1-container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 9999;
+    background: white;
+    left: 0;
+    overflow: scroll;
+  }
+}
+
 
 footer.masthead {
   display: block;
