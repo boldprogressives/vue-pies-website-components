@@ -71,6 +71,7 @@ body {
       max-height: 0;
       overflow: scroll;
       transition: max-height .3s ease;
+      width: 100%;
 
       &.shown {
         max-height: 100vh;
