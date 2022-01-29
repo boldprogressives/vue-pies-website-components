@@ -60,7 +60,7 @@ textarea {
 
       &:hover {
         background-color: var(--form-button-color__hover, var(--button-color__hover));
-        border-color: var(--form-button-color__hover, var(--button-border-color__hover, var(button-color__hover)));
+        border-color: var(--form-button-color__hover, var(--button-border-color__hover, var(--button-color__hover)));
         color: var(--form-button-text-color__hover, var(--button-text-color__hover));
       }
     }
