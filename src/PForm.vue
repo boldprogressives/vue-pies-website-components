@@ -43,21 +43,40 @@ export default {
         return;
       }
       
-      const response = await this.$fire.firestore.collection("website-form-submissions").add({
-        ...(this.extra || {}),
-        fields: {
-          ...this.fields,
-          ...(this.extraFields || {}),
-        },
-        meta: {
-          userAgent: navigator.userAgent,
-          referrer: document.referrer,
-          location: window.location.href,
-        },
-        form: this.uuid,
-        site: this.$pies.site,
-        timestamp: this.$fireModule.firestore.FieldValue.serverTimestamp(),
-      });
+      try {
+        const response = await this.$fire.firestore.collection("website-form-submissions").add({
+          ...(this.extra || {}),
+          fields: {
+            ...this.fields,
+            ...(this.extraFields || {}),
+          },
+          meta: {
+            userAgent: navigator.userAgent || '',
+            referrer: document.referrer || '',
+            location: window.location.href || '',
+          },
+          form: this.uuid || '',
+          site: this.$pies.site,
+          timestamp: this.$fireModule.firestore.FieldValue.serverTimestamp(),
+        });
+      } catch (err) {
+        console.error({
+          ...(this.extra || {}),
+          fields: {
+            ...this.fields,
+            ...(this.extraFields || {}),
+          },
+          meta: {
+            userAgent: navigator.userAgent || '',
+            referrer: document.referrer || '',
+            location: window.location.href || '',
+          },
+          form: this.uuid || '',
+          site: this.$pies.site,
+          timestamp: this.$fireModule.firestore.FieldValue.serverTimestamp(),
+        });
+        return;
+      }
 
       if (this.renderedSuccessRedirect) {
         window.location = this.renderedSuccessRedirect;
