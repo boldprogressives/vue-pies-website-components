@@ -29,8 +29,9 @@ export default {
       if (this.video.match(/youtube/)) {
         const id = this.video.split('?v=')[1];
         return `<iframe frameborder="0" src="https://youtube.com/embed/${id}?autoplay=1&controls=0&showinfo=0&autohide=1&loop=1&mute=1">`;
+      }  else {
+        return `<video src="${this.video}" role="presentation" crossorigin="anonymous" playsinline="" preload="auto" muted="" loop="" autoplay="" tabindex="-1" style="position: absolute; left: 0; right: 0; top: 0; bottom: 0; max-width: unset; object-fit: cover; object-position: right;"></video>`;
       }
-
     },
     
     imageString () {
