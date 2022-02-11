@@ -135,14 +135,18 @@ footer.masthead {
   fill: var(--social-button-color__hover, var(--button-color__hover, black));
   transition: all .5s ease;
 }
+
+.above-disclaimer, .below-disclaimer, .disclaimer {
+    max-width: 800px;
+    width: 100%;
+    margin: 2rem auto;
+    padding: 1rem;
+    line-height: 1.2;
+    color: var(--disclaimer-color, var(--theme--color__text,#fff));
+}
+
 .disclaimer {
-  max-width: 800px;
-  width: 100%;
-  margin: 2rem auto;
   border: 2px solid var(--disclaimer-color, var(--theme--color__text, white));
-  color: var(--disclaimer-color, var(--theme--color__text, white));
-  padding: 1rem;
-  line-height: 1.2;
 }
 
 div.entry-content {
