@@ -179,6 +179,7 @@
 .media-unit--content-wrapper {
   display: block;
   flex: 1;
+  position: relative;
 
   @include media-breakpoint-down(lg) {
     flex: 100%;
