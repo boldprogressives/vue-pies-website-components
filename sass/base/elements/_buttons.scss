@@ -43,8 +43,8 @@ a.wp-block-button__link {
   @extend .btn;
   @extend .btn-secondary;
 
-  padding-left: 0;
-  padding-right: 0;
+  padding-left: var(--button-padding, .25em);
+  padding-right: var(--button-padding, .25em);
   
   background-color: var(--button-color);
   border-color: var(--button-border-color, var(--button-color));
