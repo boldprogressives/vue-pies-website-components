@@ -49,6 +49,10 @@
     @include media-breakpoint-down(lg) {
       .media-unit--background-video {
         position: unset;
+
+        iframe, video, embed {
+          min-height: 400px;
+        }
       }
       img {
         position: unset;
@@ -132,6 +136,10 @@
       * {
         word-break: break-word !important;
       }
+
+      img {
+        max-width: 100% !important;
+      }
     }
 
     &.media-unit__mobile-reversed {
@@ -182,7 +190,7 @@
   position: relative;
 
   @include media-breakpoint-down(lg) {
-    flex: 100%;
+    flex: 100% !important;
     margin-top: var(--mobile--content-wrapper__margin-top, 0) !important;
     margin-bottom: var(--mobile--content-wrapper__margin-bottom, 0) !important;
     margin-left: var(--mobile--content-wrapper__margin-left, 0) !important;
