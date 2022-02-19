@@ -1,7 +1,7 @@
 <template>
 <div class="form-wrapper">
   <form method="POST" @submit.prevent="submitForm" v-if="!submitted">
-    <slot name="form" v-bind:fields="fields" v-bind:uuid="uuid" v-bind:submit="submit" v-bind:submitForm="submitForm">
+    <slot name="form" v-bind:fields="fields" v-bind:submit="submit" v-bind:submitForm="submitForm">
     </slot>
   </form>
 
@@ -16,7 +16,7 @@ import Handlebars from "handlebars";
 export default {
   name: 'PForm',
   props: [
-    'uuid',
+    'form',
     'submit',
     'successRedirect',
     'successMessage',
@@ -55,7 +55,7 @@ export default {
             referrer: document.referrer || '',
             location: window.location.href || '',
           },
-          form: this.uuid || '',
+          form: this.form || '',
           site: this.$pies.site,
           timestamp: this.$fireModule.firestore.FieldValue.serverTimestamp(),
         });
@@ -71,7 +71,7 @@ export default {
             referrer: document.referrer || '',
             location: window.location.href || '',
           },
-          form: this.uuid || '',
+          form: this.form || '',
           site: this.$pies.site,
           timestamp: this.$fireModule.firestore.FieldValue.serverTimestamp(),
         });
