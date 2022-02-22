@@ -76,7 +76,7 @@
   &.media-untethered {
     > div.media-side img {
       /* position: initial; */
-      object-fit: contain;
+      object-fit: var(--image-object-fit, contain);
     }
   }
   
