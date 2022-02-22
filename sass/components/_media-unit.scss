@@ -46,6 +46,10 @@
     @extend .image-aspect-ratio-container;
     --image-aspect-ratio: calc(var(--image-height) / var(--image-width) * 100%);
 
+    img {
+      object-fit: var(--image-object-fit, cover);
+    }
+    
     @include media-breakpoint-down(lg) {
       .media-unit--background-video {
         position: unset;
