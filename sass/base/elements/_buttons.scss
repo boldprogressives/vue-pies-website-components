@@ -39,6 +39,12 @@
   }
 }  
 
+@include media-breakpoint-down(lg) {
+  .media-unit .wp-block-button {
+    --button-width: 85vw !important;
+  }
+}
+
 a.wp-block-button__link {
   @extend .btn;
   @extend .btn-secondary;
