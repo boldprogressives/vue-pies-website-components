@@ -95,9 +95,11 @@ body {
       left: 0;
       overflow: scroll;
     }
-    #primary-menu.nav-menu, .primary-menu.nav-menu, #primary-menu .nav-menu, .primary-menu .nav-menu {
-      li a {
-        color: var(--mobile__theme--color__text, var(--theme--color__text, #000000));
+    #site-navigation {
+      #primary-menu.nav-menu, .primary-menu.nav-menu, #primary-menu .nav-menu, .primary-menu .nav-menu {
+        li a {
+          color: var(--mobile__theme--color__text, var(--theme--color__text, #000000));
+        }
       }
     }
   }
