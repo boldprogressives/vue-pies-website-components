@@ -93,9 +93,11 @@ body {
     background-color: var(--mobile__menu-background-color, #ffffff);    
     left: 0;
     overflow: scroll;
-
-    li a {
-      color: var(--mobile__theme--color__text, var(--theme--color__text, #000000));
+  
+    #primary-menu.nav-menu, .primary-menu.nav-menu, #primary-menu .nav-menu, .primary-menu .nav-menu {
+      li a {
+        color: var(--mobile__theme--color__text, var(--theme--color__text, #000000));
+      }
     }
   }
 }
