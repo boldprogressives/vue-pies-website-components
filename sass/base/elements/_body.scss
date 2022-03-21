@@ -36,7 +36,7 @@ body {
           @extend .btn;
           @extend .shadow-none;
           border: none;
-          color: var(--theme--color__text);
+          color: var(--theme--color__text, #000000);
         }
 
       }
@@ -90,9 +90,13 @@ body {
     top: 0;
     right: 0;
     z-index: 9999;
-    background: white;
+    background-color: var(--mobile__menu-background-color, #ffffff);    
     left: 0;
     overflow: scroll;
+
+    li a {
+      color: var(--mobile__theme--color__text, var(--theme--color__text, #000000));
+    }
   }
 }
 
