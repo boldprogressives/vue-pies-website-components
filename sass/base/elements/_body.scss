@@ -85,15 +85,16 @@ body {
     }
   }
 
-  #masthead:not(.footer) .menu-menu-1-container {
-    position: fixed;
-    top: 0;
-    right: 0;
-    z-index: 9999;
-    background-color: var(--mobile__menu-background-color, #ffffff);    
-    left: 0;
-    overflow: scroll;
-  
+  #masthead:not(.footer) {
+    .menu-menu-1-container {
+      position: fixed;
+      top: 0;
+      right: 0;
+      z-index: 9999;
+      background-color: var(--mobile__menu-background-color, #ffffff);    
+      left: 0;
+      overflow: scroll;
+    }
     #primary-menu.nav-menu, .primary-menu.nav-menu, #primary-menu .nav-menu, .primary-menu .nav-menu {
       li a {
         color: var(--mobile__theme--color__text, var(--theme--color__text, #000000));
