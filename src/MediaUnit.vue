@@ -13,6 +13,7 @@
                  :is="maybeNuxtImg" v-for="img, index in images"
                  :key="index"
                  :src="img"
+                 :alt="imageAlts[index]"
                  v-bind="maybeNuxtImgProps(img)"
                  :class="index === visibleImageIndex ? '' : 'hidden'">
       </component>
@@ -37,6 +38,7 @@ export default {
     'video',
     'loading',
     'uuid',
+    'alt',
   ],
   computed: {
     maybeNuxtImg () {
@@ -57,6 +59,18 @@ export default {
     
     images () {
       return (this.image || '').split(', ').map(o => o.trim()).filter(o => o);
+    },
+    imageAlts () {
+      let alt = this.alt || [];
+      let alts = [];
+      for (var i = 0; i < this.images.length; ++i) {
+        try {
+          alts.push(alt[i]);
+        } catch (err) {
+          alts.push(null);
+        }
+        return alts;
+      }
     },
     me () {
       return {
