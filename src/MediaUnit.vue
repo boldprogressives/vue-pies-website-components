@@ -14,7 +14,7 @@
                  :key="index"
                  :src="img"
                  :alt="imageAlts[index]"
-                 v-bind="maybeNuxtImgProps(img)"
+                 v-bind="maybeNuxtImgProps(img, index)"
                  :class="index === visibleImageIndex ? '' : 'hidden'">
       </component>
     </slot>
@@ -35,6 +35,7 @@ export default {
     'contentClass',
     'mediaStyles',
     'image',
+    'imageProp',
     'video',
     'loading',
     'uuid',
@@ -72,6 +73,18 @@ export default {
         return alts;
       }
     },
+    imageProps () {
+      let prop = this.imageProp || [];
+      let props = [];
+      for (var i = 0; i < this.images.length; ++i) {
+        try {
+          props.push(prop[i]);
+        } catch (err) {
+          props.push(null);
+        }
+        return props;
+      }
+    },
     me () {
       return {
         name: this.$options.name,
@@ -83,11 +96,18 @@ export default {
     },
   },
   methods: {
-    maybeNuxtImgProps (img) {
+    maybeNuxtImgProps (img, index) {
       if (!this.useNuxtImg()) return {};
-      return {
+      let val = {
         loading: this.loading || 'lazy',
       };
+      if (this.imageProps) {
+        val = {
+          ...val,
+          ...this.imageProps[index],
+        };
+      }
+      return val;
     },
     useNuxtImg () {
       if (!this.$nuxt) {
