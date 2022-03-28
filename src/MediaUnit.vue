@@ -81,7 +81,7 @@ export default {
         try {
           props.push(prop[i]);
         } catch (err) {
-          props.push(null);
+          props.push({});
         }
         return props;
       }
