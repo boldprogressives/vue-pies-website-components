@@ -10,7 +10,8 @@
       </div>
 
       <component v-if="image"
-                 :is="maybeNuxtImg" v-for="img, index in images"
+                 :is="maybeNuxtImg(index)"
+                 v-for="img, index in images"
                  :key="index"
                  :src="img"
                  :alt="imageAlts[index]"
@@ -42,8 +43,8 @@ export default {
     'alt',
   ],
   computed: {
-    maybeNuxtImg () {
-      return this.useNuxtImg() ? 'nuxt-img' : 'img';
+    maybeNuxtImg (index) {
+      return this.useNuxtImg(index) ? 'nuxt-img' : 'img';
     },
     
     videoEmbed () {
@@ -97,20 +98,17 @@ export default {
   },
   methods: {
     maybeNuxtImgProps (img, index) {
-      if (!this.useNuxtImg()) return {};
-      let val = {
+      if (!this.useNuxtImg(index)) return {};
+      return {
         loading: this.loading || 'lazy',
+        ...this.imageProps[index],
       };
-      if (this.imageProps) {
-        val = {
-          ...val,
-          ...this.imageProps[index],
-        };
-      }
-      return val;
     },
-    useNuxtImg () {
+    useNuxtImg (index) {
       if (!this.$nuxt) {
+        return false;
+      }
+      if (this.imageProps[index].useNuxtImg === false) {
         return false;
       }
       return true;
