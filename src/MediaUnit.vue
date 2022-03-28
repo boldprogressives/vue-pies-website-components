@@ -43,10 +43,6 @@ export default {
     'alt',
   ],
   computed: {
-    maybeNuxtImg (index) {
-      return this.useNuxtImg(index) ? 'nuxt-img' : 'img';
-    },
-    
     videoEmbed () {
       if (!this.video) {
         return;
@@ -79,7 +75,7 @@ export default {
       let props = [];
       for (var i = 0; i < this.images.length; ++i) {
         try {
-          props.push(prop[i]);
+          props.push(prop[i] || {});
         } catch (err) {
           props.push({});
         }
@@ -97,6 +93,10 @@ export default {
     },
   },
   methods: {
+    maybeNuxtImg (index) {
+      return this.useNuxtImg(index) ? 'nuxt-img' : 'img';
+    },
+
     maybeNuxtImgProps (img, index) {
       if (!this.useNuxtImg(index)) return {};
       return {
