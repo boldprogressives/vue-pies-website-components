@@ -108,7 +108,7 @@ export default {
       if (!this.$nuxt) {
         return false;
       }
-      if ((this.imageProps[index] || {}).useNuxtImg === false) {
+      if ((this.imageProps[index] || {}).disableNuxtImg) {
         return false;
       }
       return true;
