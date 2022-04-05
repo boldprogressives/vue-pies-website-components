@@ -128,6 +128,10 @@ footer.masthead {
 
   .site-navigation .primary-menu.nav-menu {
     justify-content: center;
+
+    li.menu-item:not(.menu-item-action) a:hover {
+      color: inherit;
+    }    
   }
 
   @include media-breakpoint-down(lg) {
