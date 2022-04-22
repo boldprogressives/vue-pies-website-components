@@ -124,17 +124,17 @@ export default {
 </script>
 
 <style scoped>
-form input.has-error:not(:focus) {
+form .has-error:not(:focus) {
   border: 1px solid red !important;
 }
-form input:not(:focus).has-error + label {
+form .has-error:not(:focus) + label {
   color: red;
 }
-form input.has-error:not(:focus):not(:placeholder-shown) + label {
+form .has-error:not(:focus):not(:placeholder-shown) + label {
   visibility: hidden;
   width: 100%;
 }
-form input.has-error:not(:focus):not(:placeholder-shown) + label[data-validation-message]::after {
+form .has-error:not(:focus):not(:placeholder-shown) + label[data-validation-message]::after {
   position: absolute;
   top: 0;
   right: 0;
@@ -143,7 +143,7 @@ form input.has-error:not(:focus):not(:placeholder-shown) + label[data-validation
   padding: 1rem 1.5rem;
   font-size: 1rem;
 }
-form input:not(:focus) + label[data-validation-message]::after {
+form :not(:focus) + label[data-validation-message]::after {
   content: attr(data-validation-message);
   font-size: .8rem;
   line-height: 1;
