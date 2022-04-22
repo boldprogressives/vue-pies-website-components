@@ -1,7 +1,7 @@
 <template>
 <div class="wp-block-buttons">
   <div class="wp-block-button" v-for="link, index in links || []" :key="index">
-    <a v-if="useNuxtLink(link.href)" 
+    <a v-if="useNuxtLink(link.href)"
        :href="link.href" class="wp-block-button__link">
       {{ link.text }}
     </a>

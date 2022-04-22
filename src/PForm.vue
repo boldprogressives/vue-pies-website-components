@@ -1,6 +1,6 @@
 <template>
 <div class="form-wrapper">
-  <form method="POST" @submit.prevent="submitForm" v-if="!submitted">
+  <form method="POST" @submit.prevent="submitForm" v-if="!submitted" ref="form">
     <slot name="form" v-bind:fields="fields" v-bind:submit="submit" v-bind:submitForm="submitForm">
     </slot>
   </form>
@@ -38,6 +38,36 @@ export default {
   },
   methods: {
     async submitForm () {
+
+      let hasErrors = [];
+
+      let fieldEls = this.$refs.form.elements;
+      for (var i = 0; i < fieldEls.length; ++i) {
+        let el = fieldEls[i],
+            name = el.name,
+            value = el.value;
+        if (!el.checkValidity()) {
+          let label = el.parentElement.querySelector('label');
+          if (label && label.tagName.toLowerCase() === 'label') {
+            label.dataset.validationMessage = el.validationMessage;
+          }
+          el.classList.add('has-error');
+          if (hasErrors.indexOf(name) === -1) {
+            hasErrors.push(name);
+          }
+        } else {
+          el.classList.remove('has-error');
+          let label = el.parentElement.querySelector('label');
+          if (label && label.tagName.toLowerCase() === 'label') {
+            delete label.dataset.validationMessage;
+          }
+        }
+      }
+
+      if (hasErrors.length) {
+        return;
+      }
+      
       if (!this.$pies) {
         this.submitted = true;
         return;
@@ -92,3 +122,33 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+form input.has-error:not(:focus) {
+  border: 1px solid red !important;
+}
+form input:not(:focus).has-error + label {
+  color: red;
+}
+form input.has-error:not(:focus):not(:placeholder-shown) + label {
+  visibility: hidden;
+  width: 100%;
+}
+form input.has-error:not(:focus):not(:placeholder-shown) + label[data-validation-message]::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem 1.5rem;
+  font-size: 1rem;
+}
+form input:not(:focus) + label[data-validation-message]::after {
+  content: attr(data-validation-message);
+  font-size: .8rem;
+  line-height: 1;
+  visibility: visible;
+  color: red;
+  display: block;
+}
+</style>
